@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MapData">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAAgAAAAAAAAAgAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlockInfo">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACABIADAAAAAAAAwAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriggerBlockInfo">
+    <Position X="1.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovementBlockInfo">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAABwAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RotationBlockInfo">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABYAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriggerWithTimerBlockInfo">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ValveBlockInfo">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACCAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Block">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAkBAAAAAABkgIAAAAQAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\Block.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MovementBlock">
+    <Position X="18.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAABAAAAAAAAAAAAABAAAAAABkAABAAAAAQACAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MovementBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RotationBlock">
+    <Position X="16.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAAAAAACAAAABAAAAAABEgABAAAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\RotationBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TriggerBlock">
+    <Position X="10.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAACBAAAAAABEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\TriggerBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TriggerWithTimerBlock">
+    <Position X="12.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAAAAAgAAAAAAAACBAAAAAABEAAQAAAAAAABAQ=</HashCode>
+      <FileName>Assets\Scripts\Blocks\TriggerWithTimerBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ValveBlock">
+    <Position X="14" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAAAAAAAAAAAAAABCAEAABBEAAQAQAAAAAABQ=</HashCode>
+      <FileName>Assets\Scripts\Blocks\ValveBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EventBlock">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAIgAAAUAAAEAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\EventBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="IClickable">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\UI\IClickable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ILinkable">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAgAAAEAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="UIComponents">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEEAAAAAAAAAAAAAAAAJAEEAAAAAACAARAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\UI\IClickable.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

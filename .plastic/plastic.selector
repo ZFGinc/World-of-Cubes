@@ -1,0 +1,4 @@
+repository "SwordMasters@ZFG_Dev@cloud"
+  path "/"
+    br "/main"
+    co "/main"
