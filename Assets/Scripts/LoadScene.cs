@@ -1,24 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadScene : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    public static LoadScene Instance;
-
-    private void Start()
+    public class LoadScene : MonoBehaviour
     {
-        if(Instance != null)
-            Destroy(Instance.gameObject);
-        Instance = this;
-    }
+        public static LoadScene Instance;
 
-    public void Load(string name)
-    {
-        SceneManager.LoadScene(name);
-    }
+        private void Start()
+        {
+            if (Instance != null)
+                Destroy(Instance.gameObject);
+            Instance = this;
+        }
 
-    public void Quit()
-    {
-        Application.Quit();
+        public void Load(string name)
+        {
+            SceneManager.LoadScene(name);
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
+        }
     }
 }

@@ -1,5 +1,7 @@
-﻿public interface IChange
+﻿namespace ZFGinc.Assets.WorldOfCubes
 {
-    public void OnChange();
+    public interface IChange
+    {
+        public void OnChange();
+    }
 }
-

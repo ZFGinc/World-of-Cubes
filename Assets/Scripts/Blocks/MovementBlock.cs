@@ -1,62 +1,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementBlock : Block, IClickable
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private Vector3 _oldPosition;
-    [SerializeField] private Vector3 _newPosition;
 
-    public override BlockInfo GetInfo() => (_storability) ? new MovementBlockInfo(_idBlock, _oldPosition, transform.rotation, _newPosition, _speed) : null;
-
-    public new void SetTransform(Vector3 pos)
+    public class MovementBlock : Block, IClickable
     {
-        transform.position = pos;
-    }
+        [SerializeField] private float _speed;
+        [SerializeField] private Vector3 _oldPosition;
+        [SerializeField] private Vector3 _newPosition;
 
-    public void SetSpeed(float speed) => _speed = speed;
+        public override BlockInfo GetInfo() => (_storability) ? new MovementBlockInfo(_idBlock, _oldPosition, transform.rotation, _newPosition, _speed) : null;
 
-    public void SetPositions(Vector3 oldpos, Vector3 newpos)
-    {
-        _oldPosition = oldpos;
-        _newPosition = newpos;
-    }
-
-    private void Update()
-    {
-        if (transform.position == _oldPosition)
+        public new void SetTransform(Vector3 pos)
         {
-            _oldPosition = _newPosition;
-            _newPosition = transform.position;
+            transform.position = pos;
         }
 
-        if (transform.position == _newPosition)
+        public void SetSpeed(float speed) => _speed = speed;
+
+        public void SetPositions(Vector3 oldpos, Vector3 newpos)
         {
-            _newPosition = _oldPosition;
+            _oldPosition = oldpos;
+            _newPosition = newpos;
+        }
+
+        private void Update()
+        {
+            if (transform.position == _oldPosition)
+            {
+                _oldPosition = _newPosition;
+                _newPosition = transform.position;
+            }
+
+            if (transform.position == _newPosition)
+            {
+                _newPosition = _oldPosition;
+                _oldPosition = transform.position;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, _newPosition, Time.deltaTime * _speed);
+        }
+
+        public override void SetInfo(BlockInfo _info)
+        {
+            DefaultSettings(_info);
+            if (_info is not MovementBlockInfo) return;
+
+            MovementBlockInfo info = (MovementBlockInfo)_info;
+
+            SetSpeed(info.Speed);
+            SetPositions(new Vector3(info.posX, info.posY, info.posZ), new Vector3(info.newposX, info.newposY, info.newposZ));
+        }
+
+        public new List<UIComponents> GetUI()
+        {
+            return new List<UIComponents>(new UIComponents[] { UIComponents.Link, UIComponents.Speed, UIComponents.OldPosition, UIComponents.NewPosition });
+        }
+
+        private void OnEnable()
+        {
             _oldPosition = transform.position;
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, _newPosition, Time.deltaTime * _speed);
-    }
-
-    public override void SetInfo(BlockInfo _info)
-    {
-        DefaultSettings(_info);
-        if (_info is not MovementBlockInfo) return;
-
-        MovementBlockInfo info = (MovementBlockInfo)_info;
-
-        SetSpeed(info.Speed);
-        SetPositions(new Vector3(info.posX, info.posY, info.posZ), new Vector3(info.newposX, info.newposY, info.newposZ));
-    }
-
-    public List<UIComponents> GetUI()
-    {
-        return new List<UIComponents>(new UIComponents[] { UIComponents.Link, UIComponents.Speed, UIComponents.OldPosition, UIComponents.NewPosition });
-    }
-
-    private void OnEnable()
-    {
-        _oldPosition = transform.position;
     }
 }

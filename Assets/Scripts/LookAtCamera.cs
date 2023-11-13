@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class LookAtCamera : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private Transform _camera;
-    [SerializeField] private bool _startFind;
-
-    private void Start()
+    public class LookAtCamera : MonoBehaviour
     {
-        if (!_startFind) return;
+        [SerializeField] private Transform _camera;
+        [SerializeField] private bool _startFind;
 
-        _camera = FindAnyObjectByType<Camera>().transform;
-    }
+        private void Start()
+        {
+            if (!_startFind) return;
 
-    private void Update()
-    {
-        transform.LookAt(_camera.position);
+            _camera = FindAnyObjectByType<Camera>().transform;
+        }
+
+        private void Update()
+        {
+            transform.LookAt(_camera.position);
+        }
     }
 }

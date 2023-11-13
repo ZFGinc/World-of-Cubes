@@ -1,44 +1,47 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(TriggerBlock))]
-public class LeverArm : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    private TriggerBlock _trigger;
-
-    [SerializeField] private Vector2 _angles;
-    [SerializeField] private Transform _lever;
-
-    void Start()
+    [RequireComponent(typeof(TriggerBlock))]
+    public class LeverArm : MonoBehaviour
     {
-        _trigger = GetComponent<TriggerBlock>();
-        _trigger.OnTurn += Turn;
-    }
+        private TriggerBlock _trigger;
 
-    public void Turn(bool state)
-    {
-        if(state)
+        [SerializeField] private Vector2 _angles;
+        [SerializeField] private Transform _lever;
+
+        void Start()
         {
-            StartCoroutine(SlowTurn(_angles.y, _angles.x));
+            _trigger = GetComponent<TriggerBlock>();
+            _trigger.OnTurn += Turn;
         }
-        else
+
+        public void Turn(bool state)
         {
-            StartCoroutine(SlowTurn(_angles.x, _angles.y));
+            if (state)
+            {
+                StartCoroutine(SlowTurn(_angles.y, _angles.x));
+            }
+            else
+            {
+                StartCoroutine(SlowTurn(_angles.x, _angles.y));
+            }
         }
-    }
 
-    private IEnumerator SlowTurn(float start, float end)
-    {
-        int steps = 30;
-        float delta = end - start;
-        float step = delta / steps;
-
-        while(steps > 0)
+        private IEnumerator SlowTurn(float start, float end)
         {
-            start += step;
-            _lever.localRotation = Quaternion.Euler(start, 0, 0);
-            yield return new WaitForSeconds(0.01f);
-            steps--;
+            int steps = 30;
+            float delta = end - start;
+            float step = delta / steps;
+
+            while (steps > 0)
+            {
+                start += step;
+                _lever.localRotation = Quaternion.Euler(start, 0, 0);
+                yield return new WaitForSeconds(0.01f);
+                steps--;
+            }
         }
     }
 }

@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private Transform _targetPlayer;
-    [SerializeField] private Vector3 _offset;
-    [SerializeField] private float _speed;
-
-    private void Start()
+    public class CameraFollow : MonoBehaviour
     {
-        transform.parent = null;
-    }
+        [SerializeField] private Transform _targetPlayer;
+        [SerializeField] private Vector3 _offset;
+        [SerializeField] private float _speed;
 
-    private void Update()
-    {
-        float distance = Vector3.Distance(transform.position, _targetPlayer.position);
-        transform.localPosition = Vector3.Lerp(transform.position, _targetPlayer.position + _offset, distance*_speed*Time.deltaTime);
+        private void Start()
+        {
+            transform.parent = null;
+        }
+
+        private void Update()
+        {
+            float distance = Vector3.Distance(transform.position, _targetPlayer.position);
+            transform.localPosition = Vector3.Lerp(transform.position, _targetPlayer.position + _offset, distance * _speed * Time.deltaTime);
+        }
     }
 }

@@ -1,12 +1,14 @@
 using UnityEngine;
-
-[RequireComponent(typeof(MeshRenderer))]
-public class OptimizeRender : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    protected void Awake()
+    [RequireComponent(typeof(MeshRenderer))]
+    public class OptimizeRender : MonoBehaviour
     {
-        MaterialPropertyBlock materialPropertyBlock = new MaterialPropertyBlock();
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        meshRenderer.SetPropertyBlock(materialPropertyBlock);
+        protected void Awake()
+        {
+            MaterialPropertyBlock materialPropertyBlock = new MaterialPropertyBlock();
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.SetPropertyBlock(materialPropertyBlock);
+        }
     }
 }

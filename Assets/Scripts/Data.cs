@@ -3,47 +3,50 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[Serializable]
-public struct BlockDictionary
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    public Block Block;
-    public Sprite Sprite;
-}
-
-public class Data : MonoBehaviour
-{
-    private readonly string PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".SwordMasters\\maps\\");
-    [SerializeField] private List<BlockDictionary> _blocks;
-    [SerializeField] private List<Material> _materials;
-
-    public string MainPath => PATH;
-
-    private void Start()
+    [Serializable]
+    public struct BlockDictionary
     {
-        SetColorMaterals(Color.white);
+        public Block Block;
+        public Sprite Sprite;
     }
 
-    public void SetColorMaterals(Color color)
+    public class Data : MonoBehaviour
     {
-        foreach(Material mat in _materials)
+        private readonly string PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".SwordMasters\\maps\\");
+        [SerializeField] private List<BlockDictionary> _blocks;
+        [SerializeField] private List<Material> _materials;
+
+        public string MainPath => PATH;
+
+        private void Start()
         {
-            mat.SetColor("_Color", color);
-        }
-    }
-
-    public List<BlockDictionary> Dictionary => _blocks;
-
-    public Block GetBlock(int index) => _blocks[index].Block;
-    public Sprite GetBlockSprite(int index) => _blocks[index].Sprite;
-
-    public List<Block> GetListBlocks()
-    {
-        List<Block> list = new List<Block>();
-        foreach(BlockDictionary dict in _blocks)
-        {
-            list.Add(dict.Block);
+            SetColorMaterals(Color.white);
         }
 
-        return list;
+        public void SetColorMaterals(Color color)
+        {
+            foreach (Material mat in _materials)
+            {
+                mat.SetColor("_Color", color);
+            }
+        }
+
+        public List<BlockDictionary> Dictionary => _blocks;
+
+        public Block GetBlock(int index) => _blocks[index].Block;
+        public Sprite GetBlockSprite(int index) => _blocks[index].Sprite;
+
+        public List<Block> GetListBlocks()
+        {
+            List<Block> list = new List<Block>();
+            foreach (BlockDictionary dict in _blocks)
+            {
+                list.Add(dict.Block);
+            }
+
+            return list;
+        }
     }
 }

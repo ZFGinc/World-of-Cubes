@@ -1,76 +1,79 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ValveBlock : EventBlock, IClickable
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private float _currentRotation = 45f;
-    [SerializeField] private float _triggerRotation = 180f;
-    [SerializeField] private bool _isRemember = true;
-    [Space]
-    [SerializeField] private Transform _valve;
-    [Space(10)]
-    [SerializeField] private bool _isRotate = false;
-
-    public override BlockInfo GetInfo()
+    public class ValveBlock : EventBlock, IClickable
     {
-        if(!_storability) return null;
+        [SerializeField] private float _currentRotation = 45f;
+        [SerializeField] private float _triggerRotation = 180f;
+        [SerializeField] private bool _isRemember = true;
+        [Space]
+        [SerializeField] private Transform _valve;
+        [Space(10)]
+        [SerializeField] private bool _isRotate = false;
 
-        List<BlockInfo> infos = new List<BlockInfo>();
-        foreach(Block block in _linkedBlocks)
-            infos.Add(block.GetInfo());
-        
-        return new ValveBlockInfo(_idBlock, transform.position, transform.rotation, _triggerRotation, _isRemember, infos);
-    }
+        public override BlockInfo GetInfo()
+        {
+            if (!_storability) return null;
 
-    public void SetTriggerRotation(float triggerRotation) => _triggerRotation = triggerRotation;
-    public void SetRemember(bool isRemember) => _isRemember = isRemember;
+            List<BlockInfo> infos = new List<BlockInfo>();
+            foreach (Block block in _linkedBlocks)
+                infos.Add(block.GetInfo());
 
-    private void Update()
-    {
-        Rotate();
-        if (_isRotate) return;
-        if (_isRemember) return;
-        if(_currentRotation == 0f) return;
+            return new ValveBlockInfo(_idBlock, transform.position, transform.rotation, _triggerRotation, _isRemember, infos);
+        }
 
-        _currentRotation -= Time.deltaTime * 20f;
-        _valve.localRotation = Quaternion.Euler(0, _currentRotation, 0);
+        public void SetTriggerRotation(float triggerRotation) => _triggerRotation = triggerRotation;
+        public void SetRemember(bool isRemember) => _isRemember = isRemember;
 
-        if (_currentRotation < 0f) _currentRotation = 0f;
-    }
+        private void Update()
+        {
+            Rotate();
+            if (_isRotate) return;
+            if (_isRemember) return;
+            if (_currentRotation == 0f) return;
 
-    public void Rotate()
-    {
-        if (!_isRotate) return;
+            _currentRotation -= Time.deltaTime * 20f;
+            _valve.localRotation = Quaternion.Euler(0, _currentRotation, 0);
 
-        _currentRotation += Time.deltaTime * 30f;
-        _valve.localRotation = Quaternion.Euler(0, _currentRotation, 0);
+            if (_currentRotation < 0f) _currentRotation = 0f;
+        }
 
-        Action();
-    }
+        public void Rotate()
+        {
+            if (!_isRotate) return;
 
-    private void Action()
-    {
-        if (_currentRotation < _triggerRotation) return;
+            _currentRotation += Time.deltaTime * 30f;
+            _valve.localRotation = Quaternion.Euler(0, _currentRotation, 0);
 
-        InvokeAll(true);
-    }
+            Action();
+        }
 
-    public override void SetInfo(BlockInfo _info)
-    {
-        if (_info is not ValveBlockInfo) return;
+        private void Action()
+        {
+            if (_currentRotation < _triggerRotation) return;
 
-        ValveBlockInfo info = (ValveBlockInfo)_info;
+            InvokeAll(true);
+        }
 
-        DefaultSettings(info);
+        public override void SetInfo(BlockInfo _info)
+        {
+            if (_info is not ValveBlockInfo) return;
 
-        MapLoader.LoadLinkedBlocks(info.Links, this);
+            ValveBlockInfo info = (ValveBlockInfo)_info;
 
-        SetRemember(info.IsRemember);
-        SetTriggerRotation(info.TriggerRotation);
-    }
+            DefaultSettings(info);
 
-    public List<UIComponents> GetUI()
-    {
-        return new List<UIComponents>(new UIComponents[] { UIComponents.TriggerRotation, UIComponents.IsRemember });
+            MapLoader.LoadLinkedBlocks(info.Links, this);
+
+            SetRemember(info.IsRemember);
+            SetTriggerRotation(info.TriggerRotation);
+        }
+
+        public new List<UIComponents> GetUI()
+        {
+            return new List<UIComponents>(new UIComponents[] { UIComponents.TriggerRotation, UIComponents.IsRemember });
+        }
     }
 }

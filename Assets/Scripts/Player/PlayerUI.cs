@@ -2,14 +2,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private TMP_Text _numberPlayer;
-    [SerializeField] private Color[] _colors;
-
-    public void SetNumber(int number)
+    public class PlayerUI : MonoBehaviour
     {
-        _numberPlayer.text = "P"+(number+1).ToString();
-        _numberPlayer.color = _colors[number];
+        [SerializeField] private TMP_Text _numberPlayer;
+        [SerializeField] private Color[] _colors;
+
+        public void SetNumber(int number)
+        {
+            _numberPlayer.text = "P" + (number + 1).ToString();
+            _numberPlayer.color = _colors[number];
+        }
     }
 }

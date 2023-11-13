@@ -1,69 +1,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerWithTimerBlock : EventBlock, IClickable
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private bool _state = false;
-    [SerializeField] private float _timer = 5f;
-
-    private bool _isTriggered = false;
-
-    public override BlockInfo GetInfo()
+    public class TriggerWithTimerBlock : EventBlock, IClickable
     {
-        if(!_storability) return null;
+        [SerializeField] private bool _state = false;
+        [SerializeField] private float _timer = 5f;
 
-        List<BlockInfo> infos = new List<BlockInfo>();
-        foreach(Block block in _linkedBlocks)
-            infos.Add(block.GetInfo());
-        
-        return new TriggerWithTimerBlockInfo(_idBlock, transform.position, transform.rotation, _state, _timer, infos);
-    }
+        private bool _isTriggered = false;
 
-    public void SetTimer(float timer) => _timer = timer;
-
-    private void Update()
-    {
-        if (_isTriggered) return;
-        if (!_state) return;
-        
-        _timer -= Time.deltaTime;
-
-        if (_timer > 0) return;
-
-        _state = true;
-        Action();
-    }
-
-    private void Action()
-    {
-        _isTriggered = true;
-
-        InvokeAll(true);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
+        public override BlockInfo GetInfo()
         {
-            _state = true;
+            if (!_storability) return null;
+
+            List<BlockInfo> infos = new List<BlockInfo>();
+            foreach (Block block in _linkedBlocks)
+                infos.Add(block.GetInfo());
+
+            return new TriggerWithTimerBlockInfo(_idBlock, transform.position, transform.rotation, _state, _timer, infos);
         }
-    }
 
-    public override void SetInfo(BlockInfo _info)
-    {
-        if (_info is not TriggerWithTimerBlockInfo) return;
+        public void SetTimer(float timer) => _timer = timer;
 
-        TriggerWithTimerBlockInfo info = (TriggerWithTimerBlockInfo)_info;
+        private void Update()
+        {
+            if (_isTriggered) return;
+            if (!_state) return;
 
-        DefaultSettings(info);
+            _timer -= Time.deltaTime;
 
-        MapLoader.LoadLinkedBlocks(info.Links, this);
+            if (_timer > 0) return;
 
-        SetTimer(info.Timer);
-    }
+            _state = true;
+            Action();
+        }
 
-    public new List<UIComponents> GetUI()
-    {
-        return new List<UIComponents>(new UIComponents[] { UIComponents.Timer });
+        private void Action()
+        {
+            _isTriggered = true;
+
+            InvokeAll(true);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                _state = true;
+            }
+        }
+
+        public override void SetInfo(BlockInfo _info)
+        {
+            if (_info is not TriggerWithTimerBlockInfo) return;
+
+            TriggerWithTimerBlockInfo info = (TriggerWithTimerBlockInfo)_info;
+
+            DefaultSettings(info);
+
+            MapLoader.LoadLinkedBlocks(info.Links, this);
+
+            SetTimer(info.Timer);
+        }
+
+        public new List<UIComponents> GetUI()
+        {
+            return new List<UIComponents>(new UIComponents[] { UIComponents.Timer });
+        }
     }
 }

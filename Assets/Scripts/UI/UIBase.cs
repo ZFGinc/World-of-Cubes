@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public abstract class UIBase : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] protected BlockSettings _blockSettings;
-
-    public abstract void SetInfo(BlockInfo info);
-
-    public abstract void SetInfo(BlockInfo info, ref Block block);
-
-    private void Start()
+    public abstract class UIBase : MonoBehaviour
     {
-        Disable();
-    }
+        [SerializeField] protected BlockSettings _blockSettings;
 
-    public void Enable()
-    {
-        if (this != null)
-            gameObject.SetActive(true);
-    }
+        public abstract void SetInfo(BlockInfo info);
 
-    public void Disable()
-    {
-        if(this != null)
-            gameObject.SetActive(false);
+        public abstract void SetInfo(BlockInfo info, ref Block block);
+
+        private void Start()
+        {
+            Disable();
+        }
+
+        public void Enable()
+        {
+            if (this != null)
+                gameObject.SetActive(true);
+        }
+
+        public void Disable()
+        {
+            if (this != null)
+                gameObject.SetActive(false);
+        }
     }
 }

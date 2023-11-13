@@ -1,58 +1,61 @@
 using UnityEngine;
 
-[RequireComponent (typeof(LoadScene))]
-public class Selecter : MonoBehaviour
+namespace ZFGinc.Assets.WorldOfCubes
 {
-    [SerializeField] private SkinSelect[] _players;
-
-    private LoadScene _loader;
-
-    private void Start()
+    [RequireComponent(typeof(LoadScene))]
+    public class Selecter : MonoBehaviour
     {
-        _loader = GetComponent<LoadScene>();
-    }
+        [SerializeField] private SkinSelect[] _players;
 
-    private void Update()
-    {
-        StartGame();
-    }
+        private LoadScene _loader;
 
-    public void StartGame()
-    {
-        bool isAnySelected = AnySelected();
-        bool isAllofSelectedReady = AllofSelectedReady();
-
-        if (!isAnySelected) return;
-        if (!isAllofSelectedReady) return;
-
-        for (int i = 0; i < _players.Length; i++)
-            _players[i].Save();
-        _loader.Load("play");
-    }
-
-    private bool AllofSelectedReady()
-    {
-        for (int i = 0; i < _players.Length; i++)
+        private void Start()
         {
-            if (_players[i].IsSelected && !_players[i].IsReady)
-            {
-                return false;
-            }
+            _loader = GetComponent<LoadScene>();
         }
 
-        return true;
-    }
-
-    private bool AnySelected()
-    {
-        for (int i = 0; i < _players.Length; i++)
+        private void Update()
         {
-            if (_players[i].IsSelected)
-            {
-                return true;
-            }
+            StartGame();
         }
 
-        return false;
+        public void StartGame()
+        {
+            bool isAnySelected = AnySelected();
+            bool isAllofSelectedReady = AllofSelectedReady();
+
+            if (!isAnySelected) return;
+            if (!isAllofSelectedReady) return;
+
+            for (int i = 0; i < _players.Length; i++)
+                _players[i].Save();
+            _loader.Load("play");
+        }
+
+        private bool AllofSelectedReady()
+        {
+            for (int i = 0; i < _players.Length; i++)
+            {
+                if (_players[i].IsSelected && !_players[i].IsReady)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool AnySelected()
+        {
+            for (int i = 0; i < _players.Length; i++)
+            {
+                if (_players[i].IsSelected)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

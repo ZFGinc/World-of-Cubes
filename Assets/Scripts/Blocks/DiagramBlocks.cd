@@ -50,7 +50,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Block">
-    <Position X="15" Y="0.5" Width="1.5" />
+    <Position X="11.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAAAkBAAAAAABkgIAAAAQAQAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\Block.cs</FileName>
@@ -58,7 +58,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="MovementBlock">
-    <Position X="18.25" Y="4.75" Width="1.5" />
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <InheritanceLine Type="Block" FixedFromPoint="true">
+      <Path>
+        <Point X="12.25" Y="4.165" />
+        <Point X="12.25" Y="4.495" />
+        <Point X="14.25" Y="4.495" />
+        <Point X="14.25" Y="4.165" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAQBAAABAAAAAAAAAAAAABAAAAAABkAABAAAAAQACAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\MovementBlock.cs</FileName>
@@ -66,7 +74,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="RotationBlock">
-    <Position X="16.25" Y="4.75" Width="1.5" />
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <InheritanceLine Type="Block" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.25" Y="4.165" />
+        <Point X="12.25" Y="4.495" />
+        <Point X="16" Y="4.495" />
+        <Point X="16" Y="3.973" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>ABQAAAAAAAAAAAAACAAAABAAAAAABEgABAAAAACAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\RotationBlock.cs</FileName>
@@ -74,7 +90,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TriggerBlock">
-    <Position X="10.5" Y="8.5" Width="1.5" />
+    <Position X="13.5" Y="5" Width="1.5" />
+    <InheritanceLine Type="EventBlock" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="7.905" />
+        <Point X="12.25" Y="8.28" />
+        <Point X="14.25" Y="8.28" />
+        <Point X="14.25" Y="7.261" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAAAAACBAAAAAABEAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\TriggerBlock.cs</FileName>
@@ -82,7 +106,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TriggerWithTimerBlock">
-    <Position X="12.25" Y="8.5" Width="1.5" />
+    <Position X="15.25" Y="5" Width="1.5" />
+    <InheritanceLine Type="EventBlock" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="7.905" />
+        <Point X="12.25" Y="8.59" />
+        <Point X="16.125" Y="8.59" />
+        <Point X="16.125" Y="8.223" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAQAAgAAAAAgAAAAAAAACBAAAAAABEAAQAAAAAAABAQ=</HashCode>
       <FileName>Assets\Scripts\Blocks\TriggerWithTimerBlock.cs</FileName>
@@ -90,7 +122,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ValveBlock">
-    <Position X="14" Y="8.5" Width="1.5" />
+    <Position X="17" Y="5" Width="1.5" />
+    <InheritanceLine Type="EventBlock" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="7.905" />
+        <Point X="12.25" Y="9.106" />
+        <Point X="17.75" Y="9.106" />
+        <Point X="17.75" Y="8.8" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AASAAAAAAAAAAAAAAAAAABCAEAABBEAAQAQAAAAAABQ=</HashCode>
       <FileName>Assets\Scripts\Blocks\ValveBlock.cs</FileName>
@@ -98,29 +138,35 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="EventBlock">
-    <Position X="14" Y="4.75" Width="1.5" />
+    <Position X="11.5" Y="5" Width="1.5" />
+    <InheritanceLine Type="Block" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="4.165" />
+        <Point X="12.25" Y="5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAIgAAAUAAAEAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\EventBlock.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.871" />
   </Class>
   <Interface Name="IClickable">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="17" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\UI\IClickable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ILinkable">
-    <Position X="11" Y="2" Width="1.5" />
+    <Position X="17" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAgAAAEAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="UIComponents">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="9" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEEAAAAAAAAAAAAAAAAJAEEAAAAAACAARAAEAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\UI\IClickable.cs</FileName>
