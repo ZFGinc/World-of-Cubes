@@ -283,6 +283,17 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                 throw new Exception("Invalid configuration.");
             }
         }
+        private void OnEnable()
+        {
+            if (ValidConfig)
+            {
+                Setup();
+            }
+            else
+            {
+                throw new Exception("Invalid configuration.");
+            }
+        }
         private void Update()
         {
             if (NumberOfPanels == 0) return;

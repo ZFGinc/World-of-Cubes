@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 using TMPro;
+using DanielLochner.Assets.SimpleScrollSnap;
 
 namespace ZFGinc.Assets.WorldOfCubes
 {
@@ -16,6 +17,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private Transform _parentListInfos;
         [Header("Где хранятся карты из отдельной ветки прохождения")]
         [SerializeField] private Transform _parentListMaps;
+        [SerializeField] private SimpleScrollSnap _scrollSnap;
 
         [Space]
         [Header("SnapScrolling веток прохождения")]
@@ -67,9 +69,6 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         private void ShowListInfo()
         {
-            while (_parentListInfos.childCount > 0)
-                Destroy(_parentListInfos.GetChild(0).gameObject);
-
             for(int i = 0; i < _mainInfo.Count; i++)
             {
                 MainInfo mi = _mainInfo[i];
@@ -89,15 +88,16 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         private void ShowListMaps(MainInfo mi) 
         {
-            while (_parentListMaps.childCount > 0)
-                Destroy(_parentListMaps.GetChild(0).gameObject);
+            _listMaps.SetActive(false);
+            ClearParent();
 
-            foreach(Map map in mi.Maps)
+            foreach (Map map in mi.Maps)
             {
                 string path = Path.GetFullPath(map.Name);
                 string name = Path.GetFileName(map.Name);
 
                 var obj = Instantiate(_prefabCubeUI);
+                obj.name = "zaglotys";
                 obj.transform.SetParent(_parentListMaps, false);
 
                 obj.GetComponent<Button>().onClick.AddListener(delegate () { SelectMap(path); });
@@ -106,6 +106,17 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             _listInfos.SetActive(false);
             _listMaps.SetActive(true);
+        }
+
+        private void ClearParent()
+        {
+            if (_scrollSnap.NumberOfPanels == 0) return;
+
+            while(_scrollSnap.NumberOfPanels > 0)
+            {
+                Destroy(_scrollSnap.Panels[0].gameObject);
+                _scrollSnap.Remove(0);
+            }
         }
 
         private void SelectMap(string path)

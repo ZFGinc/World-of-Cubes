@@ -1798,16 +1798,16 @@ RectTransform:
   m_GameObject: {fileID: 495346520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99766546, y: 0.99766546, z: 0.99766546}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 88163725}
-  m_Father: {fileID: 777616034}
+  m_Father: {fileID: 613361455}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -508.36}
+  m_AnchoredPosition: {x: 0, y: -507.1728}
   m_SizeDelta: {x: 340, y: 63.2701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495346522
@@ -2206,6 +2206,7 @@ RectTransform:
   m_LocalScale: {x: 1.00234, y: 1.00234, z: 1.00234}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 495346521}
   - {fileID: 1717836244}
   - {fileID: 185571341}
   m_Father: {fileID: 1852678774}
@@ -2948,7 +2949,6 @@ RectTransform:
   - {fileID: 1852678774}
   - {fileID: 959179256}
   - {fileID: 2066833090}
-  - {fileID: 495346521}
   - {fileID: 1266414123}
   m_Father: {fileID: 539169703}
   m_RootOrder: -1
@@ -4408,6 +4408,7 @@ MonoBehaviour:
   _prefabCubeUI: {fileID: 6760326800060228949, guid: 54238bbb699aa984fb4cb615c1f1b7fe, type: 3}
   _parentListInfos: {fileID: 977316737}
   _parentListMaps: {fileID: 902142134}
+  _scrollSnap: {fileID: 185571345}
   _listInfos: {fileID: 1717836243}
   _listMaps: {fileID: 185571340}
 --- !u!114 &988341778
