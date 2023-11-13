@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,10 +16,13 @@ namespace ZFGinc.Assets.WorldOfCubes
     public class Data : MonoBehaviour
     {
         private readonly string PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".SwordMasters\\maps\\");
+        private readonly JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+
         [SerializeField] private List<BlockDictionary> _blocks;
         [SerializeField] private List<Material> _materials;
 
         public string MainPath => PATH;
+        public JsonSerializerSettings JSONSettings => JsonSerializerSettings;
 
         private void Start()
         {

@@ -2,6 +2,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
+using System;
 
 namespace ZFGinc.Assets.WorldOfCubes
 {
@@ -9,8 +10,6 @@ namespace ZFGinc.Assets.WorldOfCubes
     public class MapSaver : MonoBehaviour
     {
         private Data _data;
-
-        private JsonSerializerSettings _settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
 
         private void Start()
         {
@@ -49,7 +48,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             mapData.Blocks = infos;
 
-            string json = JsonConvert.SerializeObject(mapData, _settings);
+            string json = JsonConvert.SerializeObject(mapData, _data.JSONSettings);
             File.WriteAllText(_data.MainPath + mapData.Name + "_" + mapData.Author + "_" + mapData.Version + ".json", json);
         }
 

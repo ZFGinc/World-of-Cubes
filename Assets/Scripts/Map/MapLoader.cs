@@ -28,7 +28,6 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private GameObject _objectForButtonChangeMap;
         [SerializeField] private Transform _parentForButtonChangeMap;
 
-        private JsonSerializerSettings _settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
         private Data _data;
 
         public static MapLoader Instance;
@@ -62,7 +61,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             ClearMap();
 
             var json = File.ReadAllText(path);
-            CurrentMap = JsonConvert.DeserializeObject<MapData>(json, _settings);
+            CurrentMap = JsonConvert.DeserializeObject<MapData>(json, _data.JSONSettings);
 
             MapConstruct(CurrentMap);
             Alert();

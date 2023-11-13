@@ -48,6 +48,8 @@ namespace ZFGinc.Assets.WorldOfCubes
             ColorR = colorR;
             ColorG = colorG;
             ColorB = colorB;
+
+            Maps = new List<Map>();
         }
     }
 
@@ -58,13 +60,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         public string Name { get; set; }
         public int? PreviosId { get; set; } = null;
 
-        public Map(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-
-        public Map(int id, string name, int previosId)
+        public Map(int id, string name, int? previosId = null)
         {
             Id = id;
             Name = name;
