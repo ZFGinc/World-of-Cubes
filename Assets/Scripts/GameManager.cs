@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Unity.AI.Navigation;
 using UnityEngine;
 
@@ -81,6 +82,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             }
 
             gameIsLoading = true;
+            PlayerPrefs.SetString("load_map", "null");
         }
     }
 }

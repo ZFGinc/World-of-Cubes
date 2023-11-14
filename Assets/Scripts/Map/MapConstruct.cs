@@ -223,7 +223,6 @@ namespace ZFGinc.Assets.WorldOfCubes
         public void ClearMap()
         {
             _loader.ClearMap();
-            StartCoroutine(BasePlatform());
 
             _name.text = "";
             _author.text = "";

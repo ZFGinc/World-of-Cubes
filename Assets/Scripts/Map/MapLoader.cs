@@ -43,7 +43,17 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             if (!Directory.Exists(_data.MainPath)) Directory.CreateDirectory(_data.MainPath);
 
-            LoadAllListMaps();
+            if (_isGame)
+            {
+                if (PlayerPrefs.GetString("load_map", "null") != "null")
+                {
+                    LoadCpecificMap(PlayerPrefs.GetString("load_map"));
+                }
+            }
+            else
+            {
+                LoadAllListMaps();
+            }
         }
 
         public void ClearMap()

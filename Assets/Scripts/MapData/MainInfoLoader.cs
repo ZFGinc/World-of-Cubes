@@ -97,7 +97,6 @@ namespace ZFGinc.Assets.WorldOfCubes
                 string name = Path.GetFileName(map.Name);
 
                 var obj = Instantiate(_prefabCubeUI);
-                obj.name = "zaglotys";
                 obj.transform.SetParent(_parentListMaps, false);
 
                 obj.GetComponent<Button>().onClick.AddListener(delegate () { SelectMap(path); });
