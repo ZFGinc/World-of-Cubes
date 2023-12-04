@@ -10,7 +10,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private Vector3 _oldPosition;
         [SerializeField] private Vector3 _newPosition;
 
-        public override BlockInfo GetInfo() => (_storability) ? new MovementBlockInfo(_idBlock, _oldPosition, transform.rotation, _newPosition, _speed) : null;
+        public override BlockInfo GetInfo() => (_storability) ? new MovementBlockInfo(_idBlock, _oldPosition, transform.rotation, _eventAction, _newPosition, _speed) : null;
 
         public new void SetTransform(Vector3 pos)
         {
@@ -53,7 +53,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             SetPositions(new Vector3(info.posX, info.posY, info.posZ), new Vector3(info.newposX, info.newposY, info.newposZ));
         }
 
-        public new List<UIComponents> GetUI()
+        public override List<UIComponents> GetUI()
         {
             return new List<UIComponents>(new UIComponents[] { UIComponents.Link, UIComponents.Speed, UIComponents.OldPosition, UIComponents.NewPosition });
         }

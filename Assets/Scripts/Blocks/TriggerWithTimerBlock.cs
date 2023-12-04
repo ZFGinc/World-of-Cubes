@@ -18,7 +18,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             foreach (Block block in _linkedBlocks)
                 infos.Add(block.GetInfo());
 
-            return new TriggerWithTimerBlockInfo(_idBlock, transform.position, transform.rotation, _state, _timer, infos);
+            return new TriggerWithTimerBlockInfo(_idBlock, transform.position, transform.rotation, _eventAction, _state, _timer, infos);
         }
 
         public void SetTimer(float timer) => _timer = timer;
@@ -64,7 +64,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             SetTimer(info.Timer);
         }
 
-        public new List<UIComponents> GetUI()
+        public override List<UIComponents> GetUI()
         {
             return new List<UIComponents>(new UIComponents[] { UIComponents.Timer });
         }

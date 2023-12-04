@@ -80,7 +80,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public override void SetInfo(BlockInfo info) { }
 
-        public override void SetInfo(BlockInfo info, ref Block block)
+        public override void SetInfo(BlockInfo info, Block block)
         {
             if (block == null) return;
             this.block = block;

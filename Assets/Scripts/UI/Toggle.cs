@@ -46,7 +46,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             SpriteSwitch();
         }
 
-        public override void SetInfo(BlockInfo info, ref Block block) { }
+        public override void SetInfo(BlockInfo info, Block block) { }
 
         private void SpriteSwitch()
         {

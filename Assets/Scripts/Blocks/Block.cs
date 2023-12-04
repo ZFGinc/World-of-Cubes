@@ -3,18 +3,18 @@ using UnityEngine;
 
 namespace ZFGinc.Assets.WorldOfCubes
 {
-
+    [SelectionBase]
     public class Block : MonoBehaviour, IClickable
     {
         [SerializeField] protected bool _storability = true;
         [SerializeField] protected int _idBlock;
-        //[SerializeField] protected EventAction _eventAction;
+        [SerializeField] protected EventAction _eventAction = EventAction.None;
 
         public ILinkable Link;
 
         public int GetID() => _idBlock;
 
-        public virtual BlockInfo GetInfo() => (_storability) ? new BlockInfo(_idBlock, transform.position, transform.rotation) : null;
+        public virtual BlockInfo GetInfo() => (_storability) ? new BlockInfo(_idBlock, transform.position, transform.rotation, _eventAction) : null;
 
         public virtual void SetInfo(BlockInfo info)
         {
@@ -31,23 +31,45 @@ namespace ZFGinc.Assets.WorldOfCubes
             transform.rotation = rot;
         }
 
+        protected void SetEventAction(EventAction eventAction)
+        {
+            this._eventAction = eventAction;
+        }
+
         protected virtual void DefaultSettings(BlockInfo _info)
         {
             SetTransform(new Vector3(_info.posX, _info.posY, _info.posZ));
             SetRotation(new Quaternion(_info.rotX, _info.rotY, _info.rotZ, _info.rotW));
+            SetEventAction(_info.eventAction);
         }
 
         public void OnTurn(bool state)
         {
             //Методы при срабатывании ивента от блока на которого подписались
-            if (state) Destroy(gameObject);
 
-            /*
-             * Спроектировать паттерн стратегии для замены  
-             */
+            switch(_eventAction) 
+            {
+                case EventAction.Destroy:
+                    if (state)
+                    {
+                        Link.TryUnsubscibe(this);
+                        Destroy(this.gameObject);
+                    }
+                    break;
+
+                case EventAction.SetStateTrue:
+
+                    break;
+
+                case EventAction.SetStateFalse:
+
+                    break;
+
+                default: break;
+            }
         }
 
-        public List<UIComponents> GetUI()
+        public virtual List<UIComponents> GetUI()
         {
             return new List<UIComponents>(new UIComponents[] { UIComponents.Link });
         }

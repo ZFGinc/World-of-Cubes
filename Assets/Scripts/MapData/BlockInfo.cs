@@ -15,8 +15,9 @@ namespace ZFGinc.Assets.WorldOfCubes
         public float rotY;
         public float rotZ;
         public float rotW;
+        public EventAction eventAction;
 
-        public BlockInfo(int idBlock, Vector3 position, Quaternion rotation)
+        public BlockInfo(int idBlock, Vector3 position, Quaternion rotation, EventAction eventAction)
         {
             IdBlock = idBlock;
 
@@ -28,6 +29,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             rotY = rotation.y;
             rotZ = rotation.z;
             rotW = rotation.w;
+            this.eventAction = eventAction;
         }
     }
 
@@ -37,8 +39,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public bool State;
         public List<BlockInfo> Links;
 
-        public TriggerBlockInfo(int idBlock, Vector3 position, Quaternion rotation, bool state, List<BlockInfo> links) :
-        base(idBlock, position, rotation)
+        public TriggerBlockInfo(int idBlock, Vector3 position, Quaternion rotation, EventAction eventAction, bool state, List<BlockInfo> links) :
+        base(idBlock, position, rotation, eventAction)
         {
             State = state;
             Links = links;
@@ -53,8 +55,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public float newposZ;
         public float Speed;
 
-        public MovementBlockInfo(int idBlock, Vector3 position, Quaternion rotation, Vector3 newPosition, float speed) :
-        base(idBlock, position, rotation)
+        public MovementBlockInfo(int idBlock, Vector3 position, Quaternion rotation, EventAction eventAction, Vector3 newPosition, float speed) :
+        base(idBlock, position, rotation, eventAction)
         {
             newposX = newPosition.x;
             newposY = newPosition.y;
@@ -72,8 +74,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public float newrotW;
         public float Speed;
 
-        public RotationBlockInfo(int idBlock, Vector3 position, Quaternion rotation, Quaternion newRotation, float speed) :
-        base(idBlock, position, rotation)
+        public RotationBlockInfo(int idBlock, Vector3 position, Quaternion rotation, EventAction eventAction, Quaternion newRotation, float speed) :
+        base(idBlock, position, rotation, eventAction)
         {
             newrotX = newRotation.x;
             newrotY = newRotation.y;
@@ -91,8 +93,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public float Timer;
         public List<BlockInfo> Links;
 
-        public TriggerWithTimerBlockInfo(int idBlock, Vector3 position, Quaternion rotation, bool state, float timer, List<BlockInfo> links) :
-        base(idBlock, position, rotation)
+        public TriggerWithTimerBlockInfo(int idBlock, Vector3 position, Quaternion rotation, EventAction eventAction, bool state, float timer, List<BlockInfo> links) :
+        base(idBlock, position, rotation, eventAction)
         {
             State = state;
             Timer = timer;
@@ -107,8 +109,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public bool IsRemember;
         public List<BlockInfo> Links;
 
-        public ValveBlockInfo(int idBlock, Vector3 position, Quaternion rotation, float triggerRotation, bool isRemember, List<BlockInfo> links) :
-        base(idBlock, position, rotation)
+        public ValveBlockInfo(int idBlock, Vector3 position, Quaternion rotation, EventAction eventAction, float triggerRotation, bool isRemember, List<BlockInfo> links) :
+        base(idBlock, position, rotation, eventAction)
         {
             TriggerRotation = triggerRotation;
             IsRemember = isRemember;

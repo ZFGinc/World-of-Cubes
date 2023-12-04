@@ -50,14 +50,14 @@ namespace ZFGinc.Assets.WorldOfCubes
         private Instruments _instrument = Instruments.Null;
         private Instruments _lastInstrument = Instruments.Paste;
 
-        private void Start()
+        public void Initialization()
         {
             _saver = GetComponent<MapSaver>();
             _loader = GetComponent<MapLoader>();
             _data = GetComponent<Data>();
             _blockSettings = GetComponent<BlockSettings>();
 
-            _loader.Alert += SetInformationLoadedMap;
+            _loader.AlertLoad += SetInformationLoadedMap;
 
             StartCoroutine(BasePlatform());
             AddBlockButtonsUI();

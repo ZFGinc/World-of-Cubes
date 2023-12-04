@@ -21,12 +21,14 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private List<BlockDictionary> _blocks;
         [SerializeField] private List<Material> _materials;
 
-        public string MainPath => PATH;
+        public string MainPath { get { return PATH; } }
         public JsonSerializerSettings JSONSettings => JsonSerializerSettings;
 
-        private void Start()
+        public void Initialization()
         {
             SetColorMaterals(Color.white);
+
+            if (!Directory.Exists(MainPath)) Directory.CreateDirectory(MainPath);
         }
 
         public void SetColorMaterals(Color color)

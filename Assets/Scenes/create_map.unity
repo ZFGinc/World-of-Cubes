@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e5f1b30d62185a74fbbb5bbf6b1f420f, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: b04a6baf182574644b78ce9bf0c91e68, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -9443,6 +9443,7 @@ GameObject:
   - component: {fileID: 988341772}
   - component: {fileID: 988341777}
   - component: {fileID: 988341778}
+  - component: {fileID: 988341779}
   m_Layer: 0
   m_Name: Map constructor manager
   m_TagString: Untagged
@@ -9568,6 +9569,56 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 34b9861a9b2485243b048eaadd7cc1d5, type: 3}
   - Block: {fileID: 8030098647148242967, guid: 996630eaa4f8888438419cdf5dc4a46d, type: 3}
     Sprite: {fileID: 21300000, guid: 924c47f82abe1e04e8c01e98368cff6d, type: 3}
+  - Block: {fileID: 7026480921597938171, guid: d4eb4ab99f91ba44fb2c3edc1fa80d20, type: 3}
+    Sprite: {fileID: 21300000, guid: bce1f586af6704c4bb3eef6b1875f648, type: 3}
+  - Block: {fileID: 8327394533390564388, guid: 01b2421c082b9584baf1b7fc742c82cf, type: 3}
+    Sprite: {fileID: 21300000, guid: 3bdd45c6e3c0edd48ba3b3677db869a3, type: 3}
+  - Block: {fileID: 5603833795790402955, guid: 8af15a06729e91f4eabd0ab046c347a3, type: 3}
+    Sprite: {fileID: 21300000, guid: ef7fb81dea3cd804e8c554d13121d479, type: 3}
+  - Block: {fileID: 2729537293180027746, guid: 3a64d1705f3c98848a9dfb9bd79a7377, type: 3}
+    Sprite: {fileID: 21300000, guid: 5efbf471da5a22043bc61260460fd697, type: 3}
+  - Block: {fileID: 7621920164979876468, guid: 4a974f2a735bb3f489d82986e6281e29, type: 3}
+    Sprite: {fileID: 21300000, guid: 1d3af5b3f24c05640a405a546b428498, type: 3}
+  - Block: {fileID: 495236075252406736, guid: cce3e43ed256a3642a7afcce81d0e1c3, type: 3}
+    Sprite: {fileID: 21300000, guid: 45e2bcc9a102e4f44ab934c070530bf7, type: 3}
+  - Block: {fileID: 2475269837787106836, guid: 19b7968cc9441ec4bb4ac00cd9778f53, type: 3}
+    Sprite: {fileID: 21300000, guid: d01f6690eb6c63549bdbad278c6f85eb, type: 3}
+  - Block: {fileID: 9004074311466738440, guid: 8cca1e2b030275847b4c0d19f4ec0e14, type: 3}
+    Sprite: {fileID: 21300000, guid: ae22ff825cd0348478f5eb6a5ae513b1, type: 3}
+  - Block: {fileID: 2343841975523065209, guid: 11ea635ad8f3d2044acda9947092fbb3, type: 3}
+    Sprite: {fileID: 21300000, guid: f82d6512d0e6a6942aef3651d98aa033, type: 3}
+  - Block: {fileID: 6409593524945874370, guid: 3d81cc273a852a845a319bd685d6e48d, type: 3}
+    Sprite: {fileID: 21300000, guid: a88ca5a9785b7b64cb15139ee5150796, type: 3}
+  - Block: {fileID: 6973963675809320384, guid: d78f994820371d94b9cc943af45d7c7a, type: 3}
+    Sprite: {fileID: 21300000, guid: ac36d0f71c1131b4a8f0d343d8f6124d, type: 3}
+  - Block: {fileID: 3664549852510699050, guid: 18cdfaf3e2bc5fd45b664ed94bcb6872, type: 3}
+    Sprite: {fileID: 21300000, guid: 190c70b437e3cf547bee504dc039ae62, type: 3}
+  - Block: {fileID: 8086709019293394093, guid: 0c078d6c76d28ae438761705f691f5f3, type: 3}
+    Sprite: {fileID: 21300000, guid: 3f4e593f1c4d31844993d9767264b260, type: 3}
+  - Block: {fileID: 1434664180618567342, guid: c2b879d6211793f4e82fe78b9f4074ca, type: 3}
+    Sprite: {fileID: 21300000, guid: 624565bdfeda3f54cab4ca3047508e5f, type: 3}
+  - Block: {fileID: 5421002612921075778, guid: 77b60fcec336b3a4e864179f865790cb, type: 3}
+    Sprite: {fileID: 21300000, guid: 26aa217af7a06c74da6b1e0021c4a7a5, type: 3}
+  - Block: {fileID: 2897530046159448377, guid: caffca91184d78348b6b7b391af1133d, type: 3}
+    Sprite: {fileID: 21300000, guid: 7c39ee1868c355444b12deb810ff7e49, type: 3}
+  - Block: {fileID: 2201990426097810068, guid: d1c858f75dc44c84e80b0f0ec137670f, type: 3}
+    Sprite: {fileID: 21300000, guid: 601c745655b75c14b92650955a0c4d83, type: 3}
+  - Block: {fileID: 3582806099641623520, guid: a9200c7706370bf419593558877853ef, type: 3}
+    Sprite: {fileID: 21300000, guid: 3e7a5011b717508458994a3ae56df465, type: 3}
+  - Block: {fileID: 5043854123544599465, guid: 1e114e4d10884124583b259d6217bc0c, type: 3}
+    Sprite: {fileID: 21300000, guid: 36030858055778943b870a0c80684efb, type: 3}
+  - Block: {fileID: 4016801688027475308, guid: 142b8a1cea73fff4092b606757cb8eb4, type: 3}
+    Sprite: {fileID: 21300000, guid: b3de8f927cd65d24380a74cda657c125, type: 3}
+  - Block: {fileID: 3891463734003385123, guid: 8c440e6af84b0704f804165e35c1eefd, type: 3}
+    Sprite: {fileID: 21300000, guid: d335a31c1d1c4d5449c97c65f96585da, type: 3}
+  - Block: {fileID: 6716165056672066575, guid: 2c9af4bd374499d44afdec1760c97855, type: 3}
+    Sprite: {fileID: 21300000, guid: a3d7c97302c5ade44926e998a238bdaf, type: 3}
+  - Block: {fileID: 5549557195004618048, guid: 8911c13d6a0e186468c22b15d7574e4c, type: 3}
+    Sprite: {fileID: 21300000, guid: 323455be04538c047b65807286ed4515, type: 3}
+  - Block: {fileID: 5245070700644362258, guid: 8e3bf563bd1a2864da3e399d82ad544a, type: 3}
+    Sprite: {fileID: 21300000, guid: 9834d3ad873b9e544b0b82afb5a52599, type: 3}
+  - Block: {fileID: 2174573211196020021, guid: 7f270637e90debb409dc31bec3c99ca5, type: 3}
+    Sprite: {fileID: 21300000, guid: 3ec31a7647437c04da8d916e931675ef, type: 3}
   _materials:
   - {fileID: 2100000, guid: 97096253550355543b950c7026c4077d, type: 2}
   - {fileID: 2100000, guid: 63e253559924d584e8d237caf72dc702, type: 2}
@@ -9581,6 +9632,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a4278a29e693952488d4da2f6b34cf33, type: 2}
   - {fileID: 2100000, guid: 3cd27e87ad472ed4e92615dbf1deb09b, type: 2}
   - {fileID: 2100000, guid: 0f05f114289c9594bb400c5192b9d39c, type: 2}
+  - {fileID: 2100000, guid: 60921f264c1d55e41938b0f89847b9b0, type: 2}
+  - {fileID: 2100000, guid: 5946cade1fe29e6499adf6102a6ce750, type: 2}
+  - {fileID: 2100000, guid: 3bba5f799c40d284d85c3be90071d478, type: 2}
+  - {fileID: 2100000, guid: 32c0d30d79bd30846912c6ed51d9c6cc, type: 2}
+  - {fileID: 2100000, guid: f8e6c835de485ec44bf7344b022478b9, type: 2}
+  - {fileID: 2100000, guid: 66f56168fa7477042b7e89093191c570, type: 2}
 --- !u!114 &988341775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9595,7 +9652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGame: 0
   _loadChangeList: 1
-  _loadRandomMap: 0
   _objectForButtonChangeMap: {fileID: 7991813941670446646, guid: 23c5f00d33098c74b8f78864b69f70da, type: 3}
   _parentForButtonChangeMap: {fileID: 959953482}
 --- !u!114 &988341776
@@ -9662,6 +9718,22 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &988341779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988341765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee64b31a42daecd4a98deec9404cfb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 988341774}
+  _mapLoader: {fileID: 988341775}
+  _mapSaver: {fileID: 988341773}
+  _mapConstruct: {fileID: 988341772}
 --- !u!1 &1009687132
 GameObject:
   m_ObjectHideFlags: 0

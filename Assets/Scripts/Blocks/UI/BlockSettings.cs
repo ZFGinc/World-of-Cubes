@@ -32,7 +32,7 @@ struct UIDictionary
                 {
                     if (dict.Component is UIComponents.Link)
                     {
-                        dict.Object.SetInfo(currentBlock.GetInfo(), ref _currentBlock);
+                        dict.Object.SetInfo(currentBlock.GetInfo(), _currentBlock);
                     }
                     else
                     {

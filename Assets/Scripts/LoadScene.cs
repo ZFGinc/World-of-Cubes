@@ -10,13 +10,14 @@ namespace ZFGinc.Assets.WorldOfCubes
         private void Start()
         {
             if (Instance != null)
-                Destroy(Instance.gameObject);
+                Destroy(this.gameObject);
             Instance = this;
         }
 
         public void Load(string name)
         {
-            SceneManager.LoadScene(name);
+            Application.LoadLevel(name);
+            //SceneManager.LoadScene(name);
         }
 
         public void Quit()

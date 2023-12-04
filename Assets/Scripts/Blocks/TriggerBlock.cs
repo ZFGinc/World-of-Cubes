@@ -5,9 +5,10 @@ namespace ZFGinc.Assets.WorldOfCubes
 {
     public delegate void OnTurn(bool state);
 
-    public class TriggerBlock : EventBlock, IClickable
+    public class TriggerBlock : EventBlock, IClickable, IContactable
     {
         [SerializeField] private bool _state = false;
+        [SerializeField] private bool _isPressurePlate = false;
 
         public override BlockInfo GetInfo()
         {
@@ -17,7 +18,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             foreach (Block block in _linkedBlocks)
                 infos.Add(block.GetInfo());
 
-            return new TriggerBlockInfo(_idBlock, transform.position, transform.rotation, _state, infos);
+            return new TriggerBlockInfo(_idBlock, transform.position, transform.rotation, _eventAction, _state, infos);
         }
 
         public void SetState(bool state)
@@ -40,9 +41,34 @@ namespace ZFGinc.Assets.WorldOfCubes
             SetState(info.State);
         }
 
-        public new List<UIComponents> GetUI()
+        public override List<UIComponents> GetUI()
         {
             return new List<UIComponents>(new UIComponents[] { UIComponents.State });
+        }
+
+        public void Contact(bool state)
+        {
+            SetState(state);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.tag == "Player")
+            {
+                if (!_isPressurePlate) return;
+
+                SetState(true);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                if (!_isPressurePlate) return;
+
+                SetState(false);
+            }
         }
     }
 

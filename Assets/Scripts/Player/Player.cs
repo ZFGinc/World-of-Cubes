@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace ZFGinc.Assets.WorldOfCubes
 {
-    [RequireComponent(typeof(Animator))]
+    [SelectionBase]
     [RequireComponent(typeof(CharacterController))]
     public class Player : MonoBehaviour
     {
@@ -12,8 +12,9 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private float _gravityMultiplier = 3.0f;
         [SerializeField] private float _jumpPower = 4.0f;
         [SerializeField] private float _defaultSpeed;
+        [SerializeField] private Transform _skinsParent;
 
-        private Animator _animator;
+        [SerializeField] private Animator _animator;
         private CharacterController _characterController;
 
         private Vector2 _input = Vector2.zero;
@@ -22,26 +23,24 @@ namespace ZFGinc.Assets.WorldOfCubes
         private float _currentVelocity;
         private float _velocity;
         private float _angleRotate = -45f;
+        private int _id = -1;
 
         private const float GRAVITY = -9.81f;
         private const float SMOOTHTIME = 0.05f;
+
+        private IContactable _contactable;
         #endregion
 
-        #region UIComponents
-
-        [SerializeField] private PlayerUI _playerUI;
-        #endregion
-
-        private void OnValidate()
+        public void Initialization(int id, Transform position)
         {
-            //_animator = GetComponent<Animator>();
-            //_characterController = GetComponent<CharacterController>();
-        }
+            _id = id;
 
-        private void Start()
-        {
-            _animator = GetComponent<Animator>();
+            transform.position = position.position + Vector3.up * 3;
+
             _characterController = GetComponent<CharacterController>();
+            _characterController.enabled = true;
+
+            SetSkin();
         }
 
         private void Update()
@@ -66,34 +65,41 @@ namespace ZFGinc.Assets.WorldOfCubes
             if (!IsGrounded()) return;
 
             _velocity += _jumpPower;
-            _animator.SetTrigger("isJump");
         }
 
-        public void OnAttack(InputAction.CallbackContext context)
+        public void OnAction(InputAction.CallbackContext context)
         {
             if (!IsGrounded()) return;
+            if (!IsAnimatorChaged()) return;
 
-            _animator.SetTrigger("isAttack");
-            StartCoroutine(StopMovement(0.7f));
+            _animator.SetTrigger("action");
+
+            if (_contactable == null) return;
+
+            _contactable.Contact(true);
         }
 
         private bool IsGrounded() => _characterController.isGrounded && _velocity < 0.0f;
 
-        public void SetNumber(int namber) => _playerUI.SetNumber(namber);
+        private bool IsAnimatorChaged() => _animator != null;
 
         public void ControllAnimationRun()
         {
+            if(_animator==null) return;
+
             if (_input != Vector2.zero)
             {
-                _animator.SetBool("isRun", true);
+                _animator.SetBool("run", true);
                 return;
             }
 
-            _animator.SetBool("isRun", false);
+            _animator.SetBool("run", false);
         }
 
         public void ApplyMovement()
         {
+            if (!IsAnimatorChaged()) return;
+
             _direction.x = _input.x;
             _direction.z = _input.y;
 
@@ -112,6 +118,8 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public void ApplyGravity()
         {
+            if (!IsAnimatorChaged()) return;
+
             if (IsGrounded())
             {
                 _velocity = -1f;
@@ -124,17 +132,14 @@ namespace ZFGinc.Assets.WorldOfCubes
             _direction.y = _velocity;
         }
 
-        private IEnumerator Pause(float seconds)
+        private void SetSkin()
         {
-            yield return new WaitForSeconds(seconds);
-        }
+            int skinIndex = PlayerPrefs.GetInt("skin_"+_id.ToString(), 0);
+            Transform skin = _skinsParent.GetChild(skinIndex);
+            GameObject armature = skin.GetChild(0).gameObject;
 
-        private IEnumerator StopMovement(float seconds)
-        {
-            float tempSpeed = _defaultSpeed;
-            _defaultSpeed = 0f;
-            yield return StartCoroutine(Pause(seconds));
-            _defaultSpeed = tempSpeed;
+            _animator = armature.GetComponent<Animator>();
+            skin.gameObject.SetActive(true);
         }
 
         private Vector2 Rotate(Vector2 v, float angle)
@@ -150,6 +155,25 @@ namespace ZFGinc.Assets.WorldOfCubes
             v.y = (sin * tx) + (cos * ty);
 
             return v;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.TryGetComponent(out IContactable blockcontact))
+            {
+                if (_contactable == null) _contactable = blockcontact;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.TryGetComponent(out IContactable blockcontact))
+            {
+                if (_contactable == blockcontact)
+                {
+                    _contactable = null;
+                }
+            }
         }
     }
 }

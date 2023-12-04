@@ -42,15 +42,32 @@ namespace ZFGinc.Assets.WorldOfCubes
             return true;
         }
 
+        private void RemoveNillReferceBlocks()
+        {
+            int i = 0;
+            while(i < _linkedBlocks.Count)
+            {
+                if (_linkedBlocks[i] == null)
+                {
+                    _linkedBlocks.RemoveAt(i);
+                    continue;
+                }
+                i++;
+            }
+        }
+
         protected void InvokeAll(bool state)
         {
             if (!HasSubsritions()) return;
 
             foreach (OnTurn func in OnTurn.GetInvocationList())
             {
+                if (!HasSubsritions()) return;
                 if (func == null) continue;
                 func.Invoke(state);
             }
+
+            RemoveNillReferceBlocks();
         }
     }
 

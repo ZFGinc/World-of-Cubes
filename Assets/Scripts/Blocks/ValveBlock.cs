@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ZFGinc.Assets.WorldOfCubes
 {
-    public class ValveBlock : EventBlock, IClickable
+    public class ValveBlock : EventBlock, IClickable, IContactable
     {
         [SerializeField] private float _currentRotation = 45f;
         [SerializeField] private float _triggerRotation = 180f;
@@ -21,7 +21,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             foreach (Block block in _linkedBlocks)
                 infos.Add(block.GetInfo());
 
-            return new ValveBlockInfo(_idBlock, transform.position, transform.rotation, _triggerRotation, _isRemember, infos);
+            return new ValveBlockInfo(_idBlock, transform.position, transform.rotation, _eventAction, _triggerRotation, _isRemember, infos);
         }
 
         public void SetTriggerRotation(float triggerRotation) => _triggerRotation = triggerRotation;
@@ -40,7 +40,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             if (_currentRotation < 0f) _currentRotation = 0f;
         }
 
-        public void Rotate()
+        private void Rotate()
         {
             if (!_isRotate) return;
 
@@ -49,6 +49,8 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             Action();
         }
+
+        public void Rotate(bool isRotate) => _isRotate = isRotate;
 
         private void Action()
         {
@@ -71,9 +73,22 @@ namespace ZFGinc.Assets.WorldOfCubes
             SetTriggerRotation(info.TriggerRotation);
         }
 
-        public new List<UIComponents> GetUI()
+        public override List<UIComponents> GetUI()
         {
             return new List<UIComponents>(new UIComponents[] { UIComponents.TriggerRotation, UIComponents.IsRemember });
+        }
+
+        public void Contact(bool state)
+        {
+            Rotate(state);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                Rotate(false);
+            }
         }
     }
 }

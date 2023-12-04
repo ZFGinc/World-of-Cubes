@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Action",
                     "type": "Button",
                     "id": "391efa27-f778-4b3b-8219-3aa4db5200d7",
                     "expectedControlType": "Button",
@@ -129,18 +129,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Attack",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "fa1da5f3-3e0d-4226-a854-70947edca335",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Attack",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

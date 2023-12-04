@@ -57,7 +57,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             _v = v;
         }
 
-        public override void SetInfo(BlockInfo info, ref Block block) { }
+        public override void SetInfo(BlockInfo info, Block block) { }
 
         private Vector3 GetXYZ(MovementBlockInfo info)
         {

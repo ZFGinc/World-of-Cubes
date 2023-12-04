@@ -11,11 +11,9 @@ namespace ZFGinc.Assets.WorldOfCubes
     {
         private Data _data;
 
-        private void Start()
+        public void Initialization()
         {
             _data = GetComponent<Data>();
-
-            if (!Directory.Exists(_data.MainPath)) Directory.CreateDirectory(_data.MainPath);
         }
 
         public void SaveMap(string name, string author, string version, float colorR, float colorG, float colorB)

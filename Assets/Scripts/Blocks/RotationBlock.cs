@@ -9,7 +9,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         private Quaternion _oldRotation;
         private Quaternion _newRotation;
 
-        public override BlockInfo GetInfo() => (_storability) ? new RotationBlockInfo(_idBlock, transform.position, _oldRotation, _newRotation, _speed) : null;
+        public override BlockInfo GetInfo() => (_storability) ? new RotationBlockInfo(_idBlock, transform.position, _oldRotation, _eventAction, _newRotation, _speed) : null;
 
         public new void SetRotation(Quaternion rot)
         {
@@ -52,7 +52,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             SetNewRotation(new Quaternion(info.newrotX, info.newrotY, info.newrotZ, info.newrotW));
         }
 
-        public new List<UIComponents> GetUI()
+        public override List<UIComponents> GetUI()
         {
             return new List<UIComponents>(new UIComponents[] { UIComponents.Link, UIComponents.Speed, UIComponents.OldRotation, UIComponents.NewRotation });
         }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8673166677721257832}
   - component: {fileID: 5294259559923692540}
   - component: {fileID: 6944524330607739731}
+  - component: {fileID: 4723997325214054811}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -106,6 +107,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: d476ade25fce4fb4b875c8d60ea81c5d, type: 3}
+--- !u!114 &4723997325214054811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3331615916141624601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613a423a510807b4582b7efb45c9cc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5536612507790144332
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +131,7 @@ GameObject:
   - component: {fileID: 6363664079901855011}
   - component: {fileID: 6812028154286212167}
   - component: {fileID: 4696499512289902955}
+  - component: {fileID: 1639571353342728399}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -212,6 +226,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: d4a1303ff6014064899a82c56f384ee1, type: 3}
+--- !u!114 &1639571353342728399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536612507790144332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613a423a510807b4582b7efb45c9cc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6030756297111750080
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +293,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.3, y: 1, z: 1.3}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &709817611855889254
 MonoBehaviour:
@@ -283,7 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storability: 1
   _idBlock: 26
+  _eventAction: 0
   _state: 0
+  _isPressurePlate: 0
 --- !u!114 &5280278037449073867
 MonoBehaviour:
   m_ObjectHideFlags: 0

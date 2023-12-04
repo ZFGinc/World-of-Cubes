@@ -8,7 +8,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public abstract void SetInfo(BlockInfo info);
 
-        public abstract void SetInfo(BlockInfo info, ref Block block);
+        public abstract void SetInfo(BlockInfo info, Block block);
 
         private void Start()
         {

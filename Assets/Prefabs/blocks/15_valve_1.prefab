@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.3, y: 1, z: 1.3}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &9117565177215334768
 MonoBehaviour:
@@ -69,10 +69,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storability: 1
   _idBlock: 15
+  _eventAction: 0
   _currentRotation: 0
   _triggerRotation: 0
   _isRemember: 1
   _valve: {fileID: 1775946388117169254}
+  _isRotate: 0
 --- !u!1 &7355295917660092253
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +87,7 @@ GameObject:
   - component: {fileID: 3490925817225977132}
   - component: {fileID: 96819325744036280}
   - component: {fileID: 2776863588665541536}
+  - component: {fileID: 2258428252384511771}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -179,3 +182,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: b35ce6ea1fdc9fd4ba12bf0ef935ca39, type: 3}
+--- !u!114 &2258428252384511771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355295917660092253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613a423a510807b4582b7efb45c9cc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

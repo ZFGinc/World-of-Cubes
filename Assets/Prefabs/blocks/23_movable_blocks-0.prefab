@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6069283428671018431}
   - component: {fileID: 9001924087529598197}
   - component: {fileID: 5605002838109898849}
+  - component: {fileID: 630860040882595742}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &630860040882595742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065898432100550276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613a423a510807b4582b7efb45c9cc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6269443343875620445
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +128,7 @@ Transform:
   m_Children:
   - {fileID: 6069283428671018431}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6234372492272271687
 BoxCollider:
@@ -152,3 +165,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storability: 1
   _idBlock: 23
+  _eventAction: 0

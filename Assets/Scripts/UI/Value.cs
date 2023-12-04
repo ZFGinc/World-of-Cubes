@@ -47,6 +47,6 @@ namespace ZFGinc.Assets.WorldOfCubes
             _text.text = _value.ToString();
         }
 
-        public override void SetInfo(BlockInfo info, ref Block block) { }
+        public override void SetInfo(BlockInfo info, Block block) { }
     }
 }

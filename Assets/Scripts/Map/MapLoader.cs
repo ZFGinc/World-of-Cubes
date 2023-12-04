@@ -14,7 +14,7 @@ namespace ZFGinc.Assets.WorldOfCubes
     {
         public string[] AllMaps { get; private set; }
         public MapData CurrentMap { get; private set; }
-        public event Alert Alert;
+        public event Alert AlertLoad;
         public List<Transform> SpawnPoint { get; private set; } = new List<Transform>();
 
         [Header("Игровая сцена или нет")]
@@ -22,9 +22,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         [Space]
         [Header("Загрузка информации о картах")]
         [SerializeField] private bool _loadChangeList = false;
-        [SerializeField] private bool _loadRandomMap = false;
         [Space]
-        [Header("UI для отображдения карт\nЕсли загружается информация о списке доступных карт,\nто эти компонены необходимы")]
+        [Header("UI для отображдения карт в списке\nЕсли загружается информация о списке доступных карт,\nто эти компонены необходимы")]
         [SerializeField] private GameObject _objectForButtonChangeMap;
         [SerializeField] private Transform _parentForButtonChangeMap;
 
@@ -32,27 +31,23 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public static MapLoader Instance;
 
-        private void OnValidate()
+        public void Initialization()
         {
             _data = GetComponent<Data>();
-        }
 
-        private void Start()
-        {
             Instance = this;
 
-            if (!Directory.Exists(_data.MainPath)) Directory.CreateDirectory(_data.MainPath);
+            if (!_isGame) LoadAllListMaps();
+        }
 
+        public void LoadMap()
+        {
             if (_isGame)
             {
                 if (PlayerPrefs.GetString("load_map", "null") != "null")
                 {
                     LoadCpecificMap(PlayerPrefs.GetString("load_map"));
                 }
-            }
-            else
-            {
-                LoadAllListMaps();
             }
         }
 
@@ -74,7 +69,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             CurrentMap = JsonConvert.DeserializeObject<MapData>(json, _data.JSONSettings);
 
             MapConstruct(CurrentMap);
-            Alert();
+            AlertLoad();
         }
 
         public void LoadAllListMaps()
@@ -82,19 +77,6 @@ namespace ZFGinc.Assets.WorldOfCubes
             AllMaps = Directory.GetFiles(_data.MainPath);
 
             ShowListMaps();
-            LoadRandomMap();
-        }
-
-        private void LoadRandomMap()
-        {
-            if (!_loadRandomMap) return;
-
-            int index = Random.Range(0, AllMaps.Length);
-            //while(Path.GetExtension(AllMaps[index]) != "json"){
-            //    index = Random.Range(0, AllMaps.Length);
-            //}
-
-            LoadCpecificMap(AllMaps[index]);
         }
 
         private void ShowListMaps()
