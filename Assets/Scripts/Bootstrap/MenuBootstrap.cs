@@ -15,7 +15,7 @@ namespace ZFGinc.Assets.WorldOfCubes.Bootstrap
         {
             _data.Initialization();
             _mainInfoLoader.Initialization();
-            _selecter.Initialization(_loadScene);
+            _selecter.Initialization(_loadScene, _mainInfoLoader);
             skinSelect_1.Initialization();
             skinSelect_2.Initialization();
         }

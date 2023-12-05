@@ -17,7 +17,6 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private Transform _parentListInfos;
         [Header("Где хранятся карты из отдельной ветки прохождения")]
         [SerializeField] private Transform _parentListMaps;
-        [SerializeField] private SimpleScrollSnap _scrollSnap;
 
         [Space]
         [Header("SnapScrolling веток прохождения")]
@@ -28,6 +27,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         private List<MainInfo> _mainInfo;
         private List<string> _allMaps;
         private Data _data;
+
+        public bool IsMapSelected { get; private set; } = false;
 
         public void Initialization()
         {
@@ -70,7 +71,12 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         private void ShowListInfo()
         {
-            for(int i = 0; i < _mainInfo.Count; i++)
+            _listInfos.SetActive(false);
+            ClearParent(_listInfos.GetComponent<SimpleScrollSnap>());
+
+            ShowResourcesMaps();
+
+            for (int i = 0; i < _mainInfo.Count; i++)
             {
                 MainInfo mi = _mainInfo[i];
                 string name = mi.Name;
@@ -79,22 +85,48 @@ namespace ZFGinc.Assets.WorldOfCubes
                 var obj = Instantiate(_prefabCubeUI);
                 obj.transform.SetParent(_parentListInfos, false);
 
-                obj.GetComponent<Button>().onClick.AddListener(delegate () { ShowListMaps(mi); });
+                obj.GetComponent<Button>().onClick.AddListener(delegate () { ShowListMaps(mi, _data.MainPath); });
                 obj.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = mi.Name;
 
                 Color color = new Color(mi.ColorR, mi.ColorG, mi.ColorB);
                 obj.GetComponent<Image>().color = color;
             }
+
+            _listInfos.SetActive(true);
         }
 
-        private void ShowListMaps(MainInfo mi) 
+        private void ShowResourcesMaps()
+        {
+            #if UNITY_EDITOR
+            string path = "Assets/Resources";
+            #elif UNITY_STANDALONE
+            string path = "World of Cubes_Data/Resources";
+            #endif
+
+            var json = Resources.Load<TextAsset>("Introduction/maininfo").ToString();
+
+            MainInfo mi = JsonConvert.DeserializeObject<MainInfo>(json);
+
+            string name = mi.Name;
+
+            var obj = Instantiate(_prefabCubeUI);
+            obj.transform.SetParent(_parentListInfos, false);
+
+            obj.GetComponent<Button>().onClick.AddListener(delegate () { ShowListMaps(mi, path); });
+            obj.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = mi.Name;
+
+            Color color = new Color(mi.ColorR, mi.ColorG, mi.ColorB);
+            obj.GetComponent<Image>().color = color;
+        }
+
+        private void ShowListMaps(MainInfo mi, string basePath) 
         {
             _listMaps.SetActive(false);
-            ClearParent();
+            ClearParent(_listMaps.GetComponent<SimpleScrollSnap>());
 
             foreach (Map map in mi.Maps)
             {
-                string path = _data.MainPath + "\\" + mi.Name + "\\maps\\"+ map.Name;
+                string path = basePath + "\\" + mi.Name + "\\maps\\"+ map.Name;
                 string name = Path.GetFileName(map.Name);
 
                 var obj = Instantiate(_prefabCubeUI);
@@ -108,20 +140,21 @@ namespace ZFGinc.Assets.WorldOfCubes
             _listMaps.SetActive(true);
         }
 
-        private void ClearParent()
+        private void ClearParent(SimpleScrollSnap scrollSnap)
         {
-            if (_scrollSnap.NumberOfPanels == 0) return;
+            if (scrollSnap.NumberOfPanels == 0) return;
 
-            while(_scrollSnap.NumberOfPanels > 0)
+            while(scrollSnap.NumberOfPanels > 0)
             {
-                Destroy(_scrollSnap.Panels[0].gameObject);
-                _scrollSnap.Remove(0);
+                Destroy(scrollSnap.Panels[0].gameObject);
+                scrollSnap.Remove(0);
             }
         }
 
         private void SelectMap(string path)
         {
             PlayerPrefs.SetString("load_map", path);
+            IsMapSelected = true;
         }
     }
 }

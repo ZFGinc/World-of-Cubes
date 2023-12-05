@@ -9,10 +9,12 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private bool isAllofSelectedReady;
 
         private LoadScene _loader;
+        private MainInfoLoader _mainInfoLoader;
 
-        public void Initialization(LoadScene loader)
+        public void Initialization(LoadScene loader, MainInfoLoader mainInfoLoader)
         {
             _loader = loader;
+            _mainInfoLoader = mainInfoLoader;
         }
 
         private void FixedUpdate()
@@ -27,6 +29,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             if (!isAnySelected) return;
             if (!isAllofSelectedReady) return;
+            if (!_mainInfoLoader.IsMapSelected) return;
 
             for (int i = 0; i < _players.Length; i++)
                 _players[i].Save();

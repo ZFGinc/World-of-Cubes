@@ -420,6 +420,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             }
 
             // Starting Panel
+            startingPanel = 0;
             float xOffset = (movementType == MovementType.Free || movementAxis == MovementAxis.Horizontal) ? Viewport.rect.width  / 2f : 0f;
             float yOffset = (movementType == MovementType.Free || movementAxis == MovementAxis.Vertical)   ? Viewport.rect.height / 2f : 0f;
             Vector2 offset = new Vector2(xOffset, yOffset);

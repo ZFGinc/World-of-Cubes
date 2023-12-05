@@ -9,14 +9,14 @@ namespace ZFGinc.Assets.WorldOfCubes {
         private LoadScene _loadScene;
         private bool _isPaused = false;
 
-        private void Start ()
+        public void Initialization()
         {
             _loadScene = GetComponent<LoadScene>();
         }
 
         private void Update ()
         {
-            if(Input.GetKeyUp(KeyCode.Escape))
+            if (Input.GetKeyUp(KeyCode.Escape) || Hinput.anyGamepad.start)
             {
                 PauseGame();
             }

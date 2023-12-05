@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4814827313032949655}
   - component: {fileID: 7710939273181985125}
   - component: {fileID: 1144706344245855300}
+  - component: {fileID: 6043077912095198071}
+  - component: {fileID: 6222275084002181939}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Untagged
@@ -96,6 +98,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613a423a510807b4582b7efb45c9cc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6043077912095198071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825764158557550250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48b79d5857f8684b8e2416db818a228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: a73d121d184966742a67932b51ef5cac, type: 2}
+  - {fileID: 2100000, guid: 5c5de93ea78bf1d47a2886c16637ec24, type: 2}
+  - {fileID: 2100000, guid: fedba0b0b27ce1743867e8b1649fa43c, type: 2}
+  - {fileID: 2100000, guid: 9602f23c00ba6df4eb4fa4043e45088c, type: 2}
+  - {fileID: 2100000, guid: 9de32383b3c064547ae588b48f30ed45, type: 2}
+  - {fileID: 2100000, guid: 788371fbad870c84db29e63863588e52, type: 2}
+  _colors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0.5326233, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.7830725, a: 1}
+  - {r: 0, g: 1, b: 0.100815535, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  _meshRenderer: {fileID: 7710939273181985125}
+  _light: {fileID: 39627215077646278}
+--- !u!65 &6222275084002181939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825764158557550250}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &6563707289224471948
 GameObject:
   m_ObjectHideFlags: 0

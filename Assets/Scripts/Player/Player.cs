@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -77,6 +76,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             if (_contactable == null) return;
 
             _contactable.Contact(true);
+            Hinput.anyGamepad.Vibrate();
         }
 
         private bool IsGrounded() => _characterController.isGrounded && _velocity < 0.0f;
