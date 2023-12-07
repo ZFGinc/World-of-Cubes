@@ -976,6 +976,22 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 9834d3ad873b9e544b0b82afb5a52599, type: 3}
   - Block: {fileID: 2174573211196020021, guid: 7f270637e90debb409dc31bec3c99ca5, type: 3}
     Sprite: {fileID: 21300000, guid: 3ec31a7647437c04da8d916e931675ef, type: 3}
+  - Block: {fileID: 4091812963339718087, guid: a0f51b010db8681458a8fb2e9e32a2ca, type: 3}
+    Sprite: {fileID: 21300000, guid: 0233e0e84a3125442b4e29e3e3fc5e27, type: 3}
+  - Block: {fileID: 7563705712051277922, guid: 724b46851441fdd438b9a52b393271fa, type: 3}
+    Sprite: {fileID: 21300000, guid: 725b553968627c64b981933d43bfeb4b, type: 3}
+  - Block: {fileID: 4935065460719950031, guid: 9e582500c5693374ca94d10518f451f7, type: 3}
+    Sprite: {fileID: 21300000, guid: c95aa57994ddecc48b845462c0e27797, type: 3}
+  - Block: {fileID: 4365998332131458741, guid: 637ebfae459e6124ba0429fbc1d5523b, type: 3}
+    Sprite: {fileID: 21300000, guid: 3ec31a7647437c04da8d916e931675ef, type: 3}
+  - Block: {fileID: 1857815723669301637, guid: 2000cf22cb85024439a735c53edab61f, type: 3}
+    Sprite: {fileID: 21300000, guid: 0e7bc00290615ad41a46a26c44b837a5, type: 3}
+  - Block: {fileID: 6331328868072908700, guid: ef7aa63984d129745a422fd076196764, type: 3}
+    Sprite: {fileID: 21300000, guid: 0a7e61aae96f8fc42b2e0e54c7752318, type: 3}
+  - Block: {fileID: 6352806761211265994, guid: 0b3ede459e1f15c4f8953fbb453276eb, type: 3}
+    Sprite: {fileID: 21300000, guid: 32e6a25b08c8b0c4ead315e49d279dad, type: 3}
+  - Block: {fileID: 4100046375565313005, guid: 80cac08f93e139e49a5e0ddb33ee6526, type: 3}
+    Sprite: {fileID: 21300000, guid: a48dd3338a1734a44bd0b40b421ff778, type: 3}
   _materials:
   - {fileID: 2100000, guid: 97096253550355543b950c7026c4077d, type: 2}
   - {fileID: 2100000, guid: 63e253559924d584e8d237caf72dc702, type: 2}
@@ -995,6 +1011,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 32c0d30d79bd30846912c6ed51d9c6cc, type: 2}
   - {fileID: 2100000, guid: f8e6c835de485ec44bf7344b022478b9, type: 2}
   - {fileID: 2100000, guid: 66f56168fa7477042b7e89093191c570, type: 2}
+  - {fileID: 2100000, guid: b795d986e17c66a4ba5a34f55a630a73, type: 2}
 --- !u!114 &988341776
 MonoBehaviour:
   m_ObjectHideFlags: 0

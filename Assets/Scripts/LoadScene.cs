@@ -7,6 +7,8 @@ namespace ZFGinc.Assets.WorldOfCubes
     {
         public static LoadScene Instance;
 
+        private const string SITE = "http://worldofcubes.free.nf/";
+
         private void Start()
         {
             if (Instance != null)
@@ -16,13 +18,17 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public void Load(string name)
         {
-            Application.LoadLevel(name);
-            //SceneManager.LoadScene(name);
+            SceneManager.LoadScene(name);
         }
 
         public void Quit()
         {
             Application.Quit();
+        }
+
+        public void ShowMoreContent()
+        {
+            Application.OpenURL(SITE);
         }
     }
 }

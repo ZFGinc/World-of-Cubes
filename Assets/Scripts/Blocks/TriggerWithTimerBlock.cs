@@ -7,6 +7,7 @@ namespace ZFGinc.Assets.WorldOfCubes
     {
         [SerializeField] private bool _state = false;
         [SerializeField] private float _timer = 5f;
+        [SerializeField] private Animator _animator;
 
         private bool _isTriggered = false;
 
@@ -29,6 +30,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             if (!_state) return;
 
             _timer -= Time.deltaTime;
+            _animator.SetTrigger("shiver");
 
             if (_timer > 0) return;
 
@@ -40,15 +42,14 @@ namespace ZFGinc.Assets.WorldOfCubes
         {
             _isTriggered = true;
 
-            InvokeAll(true);
+            _animator.SetTrigger("shiver");
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (other.gameObject.tag == "Player")
-            {
-                _state = true;
-            }
+            if (collision.gameObject.tag != "Player") return;
+            
+            _state = true;
         }
 
         public override void SetInfo(BlockInfo _info)
