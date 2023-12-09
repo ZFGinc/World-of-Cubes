@@ -8,6 +8,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         public static LoadScene Instance;
 
         private const string SITE = "http://worldofcubes.free.nf/";
+        private const string SUPPORT = "https://boosty.to/zfginc_official";
 
         private void Start()
         {
@@ -28,7 +29,17 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public void ShowMoreContent()
         {
-            Application.OpenURL(SITE);
+            OpenURL(SITE);
+        }
+
+        public void Support()
+        {
+            OpenURL(SUPPORT);
+        }
+
+        public void OpenURL(string url)
+        {
+            Application.OpenURL(url);
         }
     }
 }

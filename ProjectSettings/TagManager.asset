@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MapBlock
   - Border
+  - ButtonClicks
   layers:
   - Default
   - TransparentFX

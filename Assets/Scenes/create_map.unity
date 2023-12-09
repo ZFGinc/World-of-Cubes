@@ -9567,8 +9567,6 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 70753acf835157342b16a7d5eb3ebef7, type: 3}
   - Block: {fileID: 709817611855889254, guid: 184314d31de729d47a63a0cc714246d0, type: 3}
     Sprite: {fileID: 21300000, guid: 34b9861a9b2485243b048eaadd7cc1d5, type: 3}
-  - Block: {fileID: 8030098647148242967, guid: 996630eaa4f8888438419cdf5dc4a46d, type: 3}
-    Sprite: {fileID: 21300000, guid: 924c47f82abe1e04e8c01e98368cff6d, type: 3}
   - Block: {fileID: 7026480921597938171, guid: d4eb4ab99f91ba44fb2c3edc1fa80d20, type: 3}
     Sprite: {fileID: 21300000, guid: bce1f586af6704c4bb3eef6b1875f648, type: 3}
   - Block: {fileID: 8327394533390564388, guid: 01b2421c082b9584baf1b7fc742c82cf, type: 3}

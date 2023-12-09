@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ZFGinc.Assets.WorldOfCubes
 {
+    [RequireComponent(typeof(AudioSource))]
     public class ValveBlock : EventBlock, IClickable, IContactable
     {
         [SerializeField] private float _currentRotation = 45f;
@@ -12,6 +13,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         [SerializeField] private Transform _valve;
         [Space(10)]
         [SerializeField] private bool _isRotate = false;
+
+        public AudioSource AudioSource { get; set; }
 
         public override BlockInfo GetInfo()
         {
@@ -31,6 +34,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         {
             Rotate();
             if (_isRotate) return;
+
+            AudioSource.Stop();
             if (_isRemember) return;
             if (_currentRotation == 0f) return;
 
@@ -71,6 +76,8 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             SetRemember(info.IsRemember);
             SetTriggerRotation(info.TriggerRotation);
+
+            AudioSource = GetComponent<AudioSource>();
         }
 
         public override List<UIComponents> GetUI()
@@ -81,6 +88,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public void Contact(bool state)
         {
             Rotate(state);
+
+            AudioSource.Play();
         }
 
         private void OnTriggerExit(Collider other)
@@ -88,6 +97,8 @@ namespace ZFGinc.Assets.WorldOfCubes
             if (other.gameObject.tag == "Player")
             {
                 Rotate(false);
+
+                AudioSource.Stop();
             }
         }
     }

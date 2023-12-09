@@ -5,15 +5,16 @@ namespace ZFGinc.Assets.WorldOfCubes
 {
     [SelectionBase]
     [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
     public class Player : MonoBehaviour
     {
-        #region Movement
         [SerializeField] private float _gravityMultiplier = 3.0f;
         [SerializeField] private float _jumpPower = 4.0f;
         [SerializeField] private float _defaultSpeed;
         [SerializeField] private Transform _skinsParent;
 
-        [SerializeField] private Animator _animator;
+        private Animator _animator;
+        private AudioSource _audioSource;
         private CharacterController _characterController;
 
         private Vector2 _input = Vector2.zero;
@@ -28,7 +29,6 @@ namespace ZFGinc.Assets.WorldOfCubes
         private const float SMOOTHTIME = 0.05f;
 
         private IContactable _contactable;
-        #endregion
 
         public void Initialization(int id, Transform position)
         {
@@ -37,6 +37,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             transform.position = position.position + Vector3.up * 3;
 
             _characterController = GetComponent<CharacterController>();
+            _audioSource = GetComponent<AudioSource>();
             _characterController.enabled = true;
 
             SetSkin();
@@ -96,6 +97,19 @@ namespace ZFGinc.Assets.WorldOfCubes
             _animator.SetBool("run", false);
         }
 
+        private void ControllAudioSource()
+        {
+            if (_audioSource == null) return;
+
+            if (_input != Vector2.zero)
+            {
+                _audioSource.Play();
+                return;
+            }
+
+            _audioSource.Stop();
+        }
+
         public void ApplyMovement()
         {
             if (!IsAnimatorChaged()) return;
@@ -105,6 +119,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
             _characterController.Move(_direction * Time.deltaTime * _defaultSpeed);
             ControllAnimationRun();
+            ControllAudioSource();
         }
 
         public void ApplyRotation()

@@ -5,10 +5,13 @@ namespace ZFGinc.Assets.WorldOfCubes
 {
     public delegate void OnTurn(bool state);
 
+    [RequireComponent(typeof(AudioSource))]
     public class TriggerBlock : EventBlock, IClickable, IContactable
     {
         [SerializeField] private bool _state = false;
         [SerializeField] private bool _isPressurePlate = false;
+
+        public AudioSource AudioSource { get; set; }
 
         public override BlockInfo GetInfo()
         {
@@ -39,6 +42,8 @@ namespace ZFGinc.Assets.WorldOfCubes
             MapLoader.LoadLinkedBlocks(info.Links, this);
 
             SetState(info.State);
+
+            AudioSource = GetComponent<AudioSource>();
         }
 
         public override List<UIComponents> GetUI()
@@ -49,6 +54,8 @@ namespace ZFGinc.Assets.WorldOfCubes
         public void Contact(bool state)
         {
             SetState(state);
+
+            AudioSource.Play();
         }
 
         private void OnTriggerEnter(Collider other)
