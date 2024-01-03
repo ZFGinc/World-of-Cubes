@@ -15,6 +15,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         NewRotation,
         TriggerRotation,
         IsRemember,
+        EventAction
     }
 
     public interface IClickable

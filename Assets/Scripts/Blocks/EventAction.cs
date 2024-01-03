@@ -6,8 +6,7 @@ namespace ZFGinc.Assets.WorldOfCubes
     public enum EventAction
     {
         None = 0,
-        Destroy,
-        SetStateTrue,
-        SetStateFalse
+        Destroy = 1,
+        Enable = 2
     }
 }

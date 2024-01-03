@@ -147,6 +147,11 @@ namespace ZFGinc.Assets.WorldOfCubes
             _direction.y = _velocity;
         }
 
+        public void SetZeroSpeed()
+        {
+            _defaultSpeed = 0f;
+        }
+
         private void SetSkin()
         {
             int skinIndex = PlayerPrefs.GetInt("skin_"+_id.ToString(), 0);

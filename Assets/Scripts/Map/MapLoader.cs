@@ -69,7 +69,17 @@ namespace ZFGinc.Assets.WorldOfCubes
             CurrentMap = JsonConvert.DeserializeObject<MapData>(json, _data.JSONSettings);
 
             MapConstruct(CurrentMap);
+            SetActiveFalseForEnableActionBlocks();
             AlertLoad();
+        }
+
+        private void SetActiveFalseForEnableActionBlocks()
+        {
+            var blocks = FindObjectsOfType<Block>();
+            foreach(Block block in blocks)
+            {
+                if (block.GetEventAction() == EventAction.Enable) block.gameObject.SetActive(false);
+            }
         }
 
         public void LoadAllListMaps()

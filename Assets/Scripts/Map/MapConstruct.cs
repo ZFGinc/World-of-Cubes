@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -171,9 +172,12 @@ namespace ZFGinc.Assets.WorldOfCubes
         private void AddBlockButtonsUI()
         {
             var list = _data.GetListBlocks();
+            int[] continues = new int[] { 27 };
             foreach (BlockDictionary block in _data.Dictionary)
             {
                 int id = block.Block.GetID();
+                if (continues.Contains(id)) continue;
+
                 var obj = Instantiate(_button, Vector3.zero, Quaternion.identity);
                 obj.transform.parent = _context;
                 obj.GetComponent<Button>().onClick.AddListener(() => NewBlock(id));

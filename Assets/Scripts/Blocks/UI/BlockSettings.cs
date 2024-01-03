@@ -6,11 +6,11 @@ namespace ZFGinc.Assets.WorldOfCubes
 {
 
     [Serializable]
-struct UIDictionary
-{
-    public UIBase Object;
-    public UIComponents Component;
-}
+    struct UIDictionary
+    {
+        public UIBase Object;
+        public UIComponents Component;
+    }
 
     public class BlockSettings : MonoBehaviour
     {
@@ -60,6 +60,13 @@ struct UIDictionary
 
         public Quaternion EulertoQuaternion(Vector3 v) => Quaternion.Euler(v.x, v.y, v.z);
 
+        public void SetEventAction(EventAction action)
+        {
+            if (_currentBlock.TryGetComponent(out Block block))
+            {
+                block.SetEventAction(action);
+            }
+        }
         public void SetState(bool state)
         {
             if (_currentBlock.TryGetComponent(out TriggerBlock block))

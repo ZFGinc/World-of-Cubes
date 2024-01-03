@@ -124,15 +124,16 @@ namespace ZFGinc.Assets.WorldOfCubes
             _listMaps.SetActive(false);
             ClearParent(_listMaps.GetComponent<SimpleScrollSnap>());
 
-            foreach (Map map in mi.Maps)
+            for(int i = 0; i < mi.Maps.Count; i++) 
             {
+                Map map = mi.Maps[i];
                 string path = basePath + "\\" + mi.Name + "\\maps\\"+ map.Name;
                 string name = Path.GetFileName(map.Name);
 
                 var obj = Instantiate(_prefabCubeUI);
                 obj.transform.SetParent(_parentListMaps, false);
 
-                obj.GetComponent<Button>().onClick.AddListener(delegate () { SelectMap(path); });
+                obj.GetComponent<Button>().onClick.AddListener(delegate () { SelectMap(mi, basePath, path, map); });
                 obj.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = name;
             }
 
@@ -151,9 +152,12 @@ namespace ZFGinc.Assets.WorldOfCubes
             }
         }
 
-        private void SelectMap(string path)
+        private void SelectMap(MainInfo mi, string basePath, string path, Map map)
         {
             PlayerPrefs.SetString("load_map", path);
+            int index = mi.Maps.IndexOf(map);
+            MapList.Instance.LoadInfo(mi, index, basePath);
+
             IsMapSelected = true;
         }
     }

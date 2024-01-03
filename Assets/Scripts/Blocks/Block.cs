@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,10 +32,12 @@ namespace ZFGinc.Assets.WorldOfCubes
             transform.rotation = rot;
         }
 
-        protected void SetEventAction(EventAction eventAction)
+        public void SetEventAction(EventAction eventAction)
         {
-            this._eventAction = eventAction;
+            _eventAction = eventAction;            
         }
+
+        public EventAction GetEventAction() { return _eventAction; }
 
         protected virtual void DefaultSettings(BlockInfo _info)
         {
@@ -57,12 +60,8 @@ namespace ZFGinc.Assets.WorldOfCubes
                     }
                     break;
 
-                case EventAction.SetStateTrue:
-
-                    break;
-
-                case EventAction.SetStateFalse:
-
+                case EventAction.Enable:
+                    this.gameObject.SetActive(true);
                     break;
 
                 default: break;
@@ -71,7 +70,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
         public virtual List<UIComponents> GetUI()
         {
-            return new List<UIComponents>(new UIComponents[] { UIComponents.Link });
+            return new List<UIComponents>(new UIComponents[] { UIComponents.Link, UIComponents.EventAction });
         }
     }
 

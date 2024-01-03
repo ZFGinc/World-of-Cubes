@@ -25,6 +25,9 @@ namespace ZFGinc.Assets.WorldOfCubes
             _isAlive = true;
             _animator.SetTrigger("alive");
             _audioSource.Play();
+
+            GameButtons obj = FindAnyObjectByType<GameButtons>();
+            obj.EndLevel();
         }
     }
 }

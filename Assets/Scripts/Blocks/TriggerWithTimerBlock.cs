@@ -30,7 +30,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             if (!_state) return;
 
             _timer -= Time.deltaTime;
-            _animator.SetTrigger("shiver");
+            _animator.SetBool("cracked", true);
 
             if (_timer > 0) return;
 
@@ -42,12 +42,12 @@ namespace ZFGinc.Assets.WorldOfCubes
         {
             _isTriggered = true;
 
-            _animator.SetTrigger("shiver");
+            Destroy(gameObject);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.tag != "Player") return;
+            if (other.gameObject.tag != "Player") return;
             
             _state = true;
         }
