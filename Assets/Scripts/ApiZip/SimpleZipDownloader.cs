@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using System;
 using UnityEngine.Networking;
+using System.Collections.Generic;
 
 namespace ZFGinc.WorldOfCubes
 {
@@ -32,9 +33,8 @@ namespace ZFGinc.WorldOfCubes
 
         //For web requests
         //<!>
-        private string _cookie = "";
+        private string _cookie = "__test=";
 
-        private const string BUM = "http://193.124.9.14:8001/";
         private const string BASE = "http://worldofcubes.free.nf/";
         private const string URL_GET_ZIP_URL = "http://worldofcubes.free.nf/api/?id=";
         private const string USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.79 Safari/537.36";
@@ -82,7 +82,7 @@ namespace ZFGinc.WorldOfCubes
         [Obsolete]
         private IEnumerator SetActualCookie()
         {
-            string temp = "";
+            string tempReturn = "<html><body><script type=\"text/javascript\" src=\"/aes.js\" ></script><script>function toNumbers(d){var e=[];d.replace(/(..)/g,function(d){e.push(parseInt(d,16))});return e}function toHex(){for(var d=[],d=1==arguments.length&&arguments[0].constructor==Array?arguments[0]:arguments,e=\"\",f=0;f<d.length;f++)e+=(16>d[f]?\"0\":\"\")+d[f].toString(16);return e.toLowerCase()}var a=toNumbers(\"f655ba9d09a112d4968c63579db590b4\"),b=toNumbers(\"98344c2eee86c3994890592585b49f80\"),c=toNumbers(\"44f96da75fc3d1bf7d9272945ddff8bb\");document.cookie=\"__test=\"+toHex(slowAES.decrypt(c,2,a,b))+\"; expires=Thu, 31-Dec-37 23:55:55 GMT; path=/\"; location.href=\"http://worldofcubes.free.nf/?i=1\";</script><noscript>This site requires Javascript to work, please enable Javascript in your browser or use a browser with Javascript support</noscript></body></html>";
             using (UnityWebRequest www = UnityWebRequest.Get(BASE))
             {
                 www.SetRequestHeader("user-agent", USER_AGENT);
@@ -100,30 +100,24 @@ namespace ZFGinc.WorldOfCubes
 
                 if (www.downloadHandler.isDone)
                 {
-                    temp = www.downloadHandler.text;
+                    tempReturn = www.downloadHandler.text;
                 }
             }
 
-            using (UnityWebRequest www = UnityWebRequest.Post(BUM, temp, "text/html"))
-            {
-                www.SetRequestHeader("user-agent", USER_AGENT);
-                www.certificateHandler = new CertificateWhore();
+            string[] tmp = tempReturn.Split("=toNumbers(\"");
+            List<string> newTmp = new List<string>();
+            for (int i = 0; i < tmp.Length; i++) newTmp.AddRange(tmp[i].Split("\")"));
+            int r = int.Parse(newTmp[7].Split(".decrypt(c,")[1].Split(",a,b))+\";")[0]);
+            string hashKey = "";
 
-                yield return www.SendWebRequest();
+            JavaScriptExecuter jsExecuter = new JavaScriptExecuter();
+            jsExecuter.Init();
+            jsExecuter.GetHashKey(newTmp[2], newTmp[4], newTmp[6], r, out hashKey);
 
-                if (www.isNetworkError)
-                {
-                    _statusCode = 503;
-                    _statusMessage = www.error;
-                    OnDownloadDone();
-                    yield break;
-                }
+            _cookie += hashKey;
 
-                if (www.downloadHandler.isDone)
-                {
-                    _cookie += www.downloadHandler.text;
-                }
-            }
+            Debug.Log("hash=" + hashKey);
+
         }
 
         [Obsolete]
