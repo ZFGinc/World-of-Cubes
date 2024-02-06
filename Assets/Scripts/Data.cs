@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [Serializable]
     public struct BlockDictionary
@@ -15,7 +15,7 @@ namespace ZFGinc.Assets.WorldOfCubes
 
     public class Data : MonoBehaviour
     {
-        private readonly string PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".SwordMasters\\maps\\");
+        private readonly string PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".WorldOfCubes\\maps\\");
         private readonly JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
 
         [SerializeField] private List<BlockDictionary> _blocks;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes.Bootstrap
+namespace ZFGinc.WorldOfCubes.Bootstrap
 {
     public class GameBootstrap: MonoBehaviour
     {

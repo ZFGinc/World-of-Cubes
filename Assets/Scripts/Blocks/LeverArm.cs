@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [RequireComponent(typeof(TriggerBlock))]
     public class LeverArm : MonoBehaviour

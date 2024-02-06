@@ -6,17 +6,23 @@ using Newtonsoft.Json;
 using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [RequireComponent(typeof(Data))]
     public class MainInfoLoader : MonoBehaviour
     {
         [Header("UI куб для отображения названия")]
         [SerializeField] private GameObject _prefabCubeUI;
+        [Header("UI куб для автоматического скачивания карт")]
+        [SerializeField] private GameObject _prefabAutoDownloader;
         [Header("Где хранятся все ветки прохождения")]
         [SerializeField] private Transform _parentListInfos;
         [Header("Где хранятся карты из отдельной ветки прохождения")]
         [SerializeField] private Transform _parentListMaps;
+        [Header("UI для вводе индекса карты на сайте")]
+        [SerializeField] private GameObject _autoDownloaderUI;
+        [Header("UI для выбора уровня и игроков")]
+        [SerializeField] private GameObject _playerChangeUI;
 
         [Space]
         [Header("SnapScrolling веток прохождения")]
@@ -92,6 +98,10 @@ namespace ZFGinc.Assets.WorldOfCubes
                 obj.GetComponent<Image>().color = color;
             }
 
+            var endAutoDownloader = Instantiate(_prefabAutoDownloader);
+            endAutoDownloader.transform.SetParent(_parentListInfos, false);
+            endAutoDownloader.GetComponent<Button>().onClick.AddListener(delegate () { _autoDownloaderUI.SetActive(true); _playerChangeUI.SetActive(false); });
+
             _listInfos.SetActive(true);
         }
 
@@ -103,7 +113,7 @@ namespace ZFGinc.Assets.WorldOfCubes
             string path = "World of Cubes_Data/Resources";
             #endif
 
-            var json = Resources.Load<TextAsset>("Introduction/maininfo").ToString();
+            var json = Resources.Load<TextAsset>("Lessons/maininfo").ToString();
 
             MainInfo mi = JsonConvert.DeserializeObject<MainInfo>(json);
 
@@ -129,6 +139,7 @@ namespace ZFGinc.Assets.WorldOfCubes
                 Map map = mi.Maps[i];
                 string path = basePath + "\\" + mi.Name + "\\maps\\"+ map.Name;
                 string name = Path.GetFileName(map.Name);
+                name = name.Split(".")[0];
 
                 var obj = Instantiate(_prefabCubeUI);
                 obj.transform.SetParent(_parentListMaps, false);

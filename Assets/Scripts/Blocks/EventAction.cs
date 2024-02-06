@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [Serializable]
     public enum EventAction

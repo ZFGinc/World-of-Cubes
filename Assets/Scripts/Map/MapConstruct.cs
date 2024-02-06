@@ -5,8 +5,9 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using ZFGinc.WorldOfCubes.UI;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     public enum Instruments
     {

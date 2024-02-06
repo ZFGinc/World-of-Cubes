@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes.Bootstrap
+namespace ZFGinc.WorldOfCubes
 {
     [RequireComponent(typeof(BoxCollider))]
     public class OutOfBounds : MonoBehaviour

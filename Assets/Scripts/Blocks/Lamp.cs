@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes.Bootstrap
+namespace ZFGinc.WorldOfCubes
 {
     public class Lamp : MonoBehaviour
     {

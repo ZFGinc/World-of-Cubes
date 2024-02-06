@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [RequireComponent(typeof(MapLoader))]
     public class SpawnPlayers : MonoBehaviour

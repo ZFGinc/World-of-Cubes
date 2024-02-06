@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [Serializable]
     public class MapData

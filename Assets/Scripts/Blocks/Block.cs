@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZFGinc.WorldOfCubes.UI;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [SelectionBase]
     public class Block : MonoBehaviour, IClickable

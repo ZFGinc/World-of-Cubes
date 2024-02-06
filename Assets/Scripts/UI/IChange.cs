@@ -1,4 +1,4 @@
-﻿namespace ZFGinc.Assets.WorldOfCubes
+﻿namespace ZFGinc.WorldOfCubes.UI
 {
     public interface IChange
     {

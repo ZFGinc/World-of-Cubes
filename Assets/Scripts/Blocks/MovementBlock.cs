@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ZFGinc.WorldOfCubes.UI;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
-
     public class MovementBlock : Block, IClickable
     {
         [SerializeField] private float _speed;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes.UI
 {
     public class Vector : UIBase, IChange
     {

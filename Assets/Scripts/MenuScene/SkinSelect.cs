@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     public class SkinSelect : MonoBehaviour
     {
@@ -54,7 +54,7 @@ namespace ZFGinc.Assets.WorldOfCubes
                 if (Hinput.gamepad[_idPlayers - 1].A) IsSelected = true;
                 if (Hinput.gamepad[_idPlayers - 1].B) IsSelected = false;
 
-                if (Hinput.gamepad[_idPlayers - 1].X)
+                if (Hinput.gamepad[_idPlayers - 1].X.justPressed)
                 {
                     _skinIndex++;
 

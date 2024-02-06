@@ -1,0 +1,30 @@
+{
+    "Name":"Lessons",
+    "Author":"ZFGinc",
+    "Version":"1.0",
+    "ColorR":1,
+    "ColorG":1,
+    "ColorB":0,
+    "Maps":[
+        {
+            "Id":0,
+            "Name":"Lesson 1.json",
+            "PreviosId":0
+        },
+        {
+            "Id":1,
+            "Name":"Lesson 2.json",
+            "PreviosId":0
+        },
+        {
+            "Id":2,
+            "Name":"Lesson 3.json",
+            "PreviosId":0
+        },
+        {
+            "Id":3,
+            "Name":"Lesson 4.json",
+            "PreviosId":0
+        }
+    ]
+}

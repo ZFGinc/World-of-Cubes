@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
 
     public class EventBlock : Block, ILinkable

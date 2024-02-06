@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace ZFGinc.Assets.WorldOfCubes
+
+namespace ZFGinc.WorldOfCubes
 {
     [RequireComponent(typeof(MeshRenderer))]
     public class OptimizeRender : MonoBehaviour

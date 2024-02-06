@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ZFGinc.WorldOfCubes.UI;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     [RequireComponent(typeof(AudioSource))]
     public class ValveBlock : EventBlock, IClickable, IContactable

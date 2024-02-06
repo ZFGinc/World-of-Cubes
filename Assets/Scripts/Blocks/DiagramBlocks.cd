@@ -1,176 +1,116 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="MapData">
-    <Position X="3" Y="0.75" Width="1.5" />
+  <Class Name="ZFGinc.WorldOfCubes.Block" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAEAAgAAAAAAAAAgAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BlockInfo">
-    <Position X="5.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAACABIADAAAAAAAAwAIAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TriggerBlockInfo">
-    <Position X="1.75" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MovementBlockInfo">
-    <Position X="7" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAABwAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RotationBlockInfo">
-    <Position X="8.75" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAABYAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TriggerWithTimerBlockInfo">
-    <Position X="5.25" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAEAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ValveBlockInfo">
-    <Position X="3.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACCAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Block">
-    <Position X="11.5" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAkBAAAAAABkgIAAAAQAQAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAQAAAAAAAkBAAAAAABkgIAAAAQAYAgAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\Block.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MovementBlock">
-    <Position X="13.5" Y="0.75" Width="1.5" />
-    <InheritanceLine Type="Block" FixedFromPoint="true">
-      <Path>
-        <Point X="12.25" Y="4.165" />
-        <Point X="12.25" Y="4.495" />
-        <Point X="14.25" Y="4.495" />
-        <Point X="14.25" Y="4.165" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="ZFGinc.WorldOfCubes.EventBlock" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAIgAAAUAAAEAAAAAAACAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\EventBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ZFGinc.WorldOfCubes.FinalTree" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAAAAEAAAAAAAAAAAYAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\FinalTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZFGinc.WorldOfCubes.Lamp" Collapsed="true">
+    <Position X="20.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAQABAQAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\Lamp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZFGinc.WorldOfCubes.LeverArm" Collapsed="true">
+    <Position X="18.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAQEAAAAACAQAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\LeverArm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZFGinc.WorldOfCubes.MovementBlock" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQBAAABAAAAAAAAAAAAABAAAAAABkAABAAAAAQACAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\MovementBlock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="RotationBlock">
-    <Position X="15.25" Y="0.75" Width="1.5" />
-    <InheritanceLine Type="Block" ManuallyRouted="true" FixedFromPoint="true">
-      <Path>
-        <Point X="12.25" Y="4.165" />
-        <Point X="12.25" Y="4.495" />
-        <Point X="16" Y="4.495" />
-        <Point X="16" Y="3.973" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="ZFGinc.WorldOfCubes.RotationBlock" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABQAAAAAAAAAAAAACAAAABAAAAAABEgABAAAAACAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\RotationBlock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TriggerBlock">
-    <Position X="13.5" Y="5" Width="1.5" />
-    <InheritanceLine Type="EventBlock" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="12.25" Y="7.905" />
-        <Point X="12.25" Y="8.28" />
-        <Point X="14.25" Y="8.28" />
-        <Point X="14.25" Y="7.261" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="ZFGinc.WorldOfCubes.TriggerBlock" Collapsed="true">
+    <Position X="11.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAAAAAACBAAAAAABEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABACAAAAAAAAACAAACBAQAAAABMAAQAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\TriggerBlock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TriggerWithTimerBlock">
-    <Position X="15.25" Y="5" Width="1.5" />
-    <InheritanceLine Type="EventBlock" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="12.25" Y="7.905" />
-        <Point X="12.25" Y="8.59" />
-        <Point X="16.125" Y="8.59" />
-        <Point X="16.125" Y="8.223" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="ZFGinc.WorldOfCubes.TriggerWithTimerBlock" Collapsed="true">
+    <Position X="14" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAgAAAAAgAAAAAAAACBAAAAAABEAAQAAAAAAABAQ=</HashCode>
+      <HashCode>AAQAAgAAAAAgAAAAAAAACBAAAAAABEAAYAAAAAAABAQ=</HashCode>
       <FileName>Assets\Scripts\Blocks\TriggerWithTimerBlock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ValveBlock">
-    <Position X="17" Y="5" Width="1.5" />
-    <InheritanceLine Type="EventBlock" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="12.25" Y="7.905" />
-        <Point X="12.25" Y="9.106" />
-        <Point X="17.75" Y="9.106" />
-        <Point X="17.75" Y="8.8" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="ZFGinc.WorldOfCubes.ValveBlock" Collapsed="true">
+    <Position X="9.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AASAAAAAAAAAAAAAAAAAABCAEAABBEAAQAQAAAAAABQ=</HashCode>
+      <HashCode>AASAAAAAAAAAAAAACAAAABCQEAABBMAAQAQAAAAAABQ=</HashCode>
       <FileName>Assets\Scripts\Blocks\ValveBlock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="EventBlock">
-    <Position X="11.5" Y="5" Width="1.5" />
-    <InheritanceLine Type="Block" FixedToPoint="true">
-      <Path>
-        <Point X="12.25" Y="4.165" />
-        <Point X="12.25" Y="5" />
-      </Path>
-    </InheritanceLine>
+  <Interface Name="ZFGinc.WorldOfCubes.ILinkable" Collapsed="true">
+    <Position X="18.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAIgAAAUAAAEAAAAAAACAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\EventBlock.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAgAAAEAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\ILinkable.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.871" />
-  </Class>
-  <Interface Name="IClickable">
-    <Position X="17" Y="0.75" Width="1.5" />
+  </Interface>
+  <Interface Name="ZFGinc.WorldOfCubes.IClickable" Collapsed="true">
+    <Position X="14.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\UI\IClickable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ILinkable">
-    <Position X="17" Y="2" Width="1.5" />
+  <Enum Name="ZFGinc.WorldOfCubes.EventAction" Collapsed="true">
+    <Position X="18.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAgAAAEAAAAAAAAAAACAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Blocks\MapData.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\EventAction.cs</FileName>
     </TypeIdentifier>
-  </Interface>
-  <Enum Name="UIComponents">
-    <Position X="9" Y="0.75" Width="1.5" />
+  </Enum>
+  <Enum Name="ZFGinc.WorldOfCubes.UIComponents" Collapsed="true">
+    <Position X="16.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEEAAAAAAAAAAAAAAAAJAEEAAAAAACAARAAEAAA=</HashCode>
+      <HashCode>AAAAAEEgAAAAAAAAAAAAAAAJAEEAAAAAACAARAAEAAA=</HashCode>
       <FileName>Assets\Scripts\Blocks\UI\IClickable.cs</FileName>
     </TypeIdentifier>
   </Enum>
+  <Delegate Name="ZFGinc.WorldOfCubes.OnTurn" Collapsed="true">
+    <Position X="18.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\TriggerBlock.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

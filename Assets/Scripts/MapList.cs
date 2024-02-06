@@ -1,8 +1,6 @@
-using System.IO;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     public class MapList : MonoBehaviour
     {
@@ -46,5 +44,7 @@ namespace ZFGinc.Assets.WorldOfCubes
         {
             _currentMapIndex++;
         }
+
+        public (string, string) GetAboutCurrentMap() => (_mainInfo.Author, _mainInfo.Maps[_currentMapIndex].Name.Split(".")[0]);
     }
 }

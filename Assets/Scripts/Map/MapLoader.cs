@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using TMPro;
 using System.Collections.Generic;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes
 {
     public delegate void Alert();
 

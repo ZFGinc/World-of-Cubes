@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace ZFGinc.Assets.WorldOfCubes.Bootstrap
+namespace ZFGinc.WorldOfCubes.UI
 {
     [RequireComponent(typeof(AudioSource))]
     public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler

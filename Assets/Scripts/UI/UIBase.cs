@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZFGinc.Assets.WorldOfCubes
+namespace ZFGinc.WorldOfCubes.UI
 {
     public abstract class UIBase : MonoBehaviour
     {
